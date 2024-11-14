@@ -135,22 +135,22 @@ h1 {
 
 .productos-lista {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Cambié el minmax a 300px para mejor adaptación */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
     gap: 20px;
     margin: 10px;
-    justify-items: center; /* Esto centra los elementos dentro de cada celda */
+    justify-items: center; 
 }
 
 .producto img {
-    max-width: 100%; /* Cambié el max-width a 100% para que se ajuste al contenedor */
+    max-width: 100%;
     height: auto;
-    display: block; /* Asegura que no haya espacio extra debajo de la imagen */
-    margin: 0 auto; /* Centra la imagen horizontalmente */
-    transition: transform 0.3s; /* Añadido para el efecto de zoom */
+    display: block; 
+    margin: 0 auto; 
+    transition: transform 0.3s; 
 }
 
 .producto img:hover {
-    transform: scale(1.05); /* Efecto de zoom al pasar el mouse */
+    transform: scale(1.05); 
 }
 
 /*son compartidas con las demas secciones*/
@@ -207,8 +207,16 @@ h1 {
 }
 
 .producto-menu img {
-    max-width: 40%;
-    border-radius: 5px;
+        max-width: 50%;
+        height: auto;
+        display: block; 
+        margin: 0 auto; 
+        transition: transform 0.3s; 
+    }
+    
+    .producto-menu img:hover {
+        transform: scale(1.05); 
+    
 }
 
 /*iconos de compra se comparten con las demas card*/
