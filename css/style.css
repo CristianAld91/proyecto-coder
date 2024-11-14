@@ -98,6 +98,10 @@ h1 {
 
 /*card del menu destacado*/
 
+.icono-compra:hover {
+    color: #000000;
+}
+
 .icono-compra {
     position: absolute;
     color: #ec4015;
@@ -131,15 +135,22 @@ h1 {
 
 .productos-lista {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(650px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Cambié el minmax a 300px para mejor adaptación */
     gap: 20px;
     margin: 10px;
-    justify-items: center;
+    justify-items: center; /* Esto centra los elementos dentro de cada celda */
 }
 
 .producto img {
-    max-width: 80%;
+    max-width: 100%; /* Cambié el max-width a 100% para que se ajuste al contenedor */
     height: auto;
+    display: block; /* Asegura que no haya espacio extra debajo de la imagen */
+    margin: 0 auto; /* Centra la imagen horizontalmente */
+    transition: transform 0.3s; /* Añadido para el efecto de zoom */
+}
+
+.producto img:hover {
+    transform: scale(1.05); /* Efecto de zoom al pasar el mouse */
 }
 
 /*son compartidas con las demas secciones*/
