@@ -176,8 +176,11 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 20px;
-    
+    transition: transform 0.3s; 
+}
+
+.title-menu-img img:hover {
+    transform: translateY(-5px);
 }
 .title-menu {
     display: flex;
@@ -216,7 +219,6 @@ h1 {
     
     .producto-menu img:hover {
         transform: scale(1.05); 
-    
 }
 
 /*iconos de compra se comparten con las demas card*/
@@ -233,7 +235,9 @@ h1 {
 
 .icono-compra:hover {
     color: #db1717;
-}
+        transform: translateY(5px);
+    }
+
 
 /*seccion iconos de delivery*/
 .delivery {
@@ -251,7 +255,13 @@ h1 {
 
 .empresa {
     flex: 1;
-}
+    transition: transform 0.3s; 
+    }
+    
+    .empresa img:hover {
+        transform: scale(1.05); 
+    }
+
 
 .logo-empresa {
     width: 100px;
@@ -273,7 +283,7 @@ h1 {
     max-width: 50%;
 }
 
-.texto-infantil {
+.texto-infantil  {
     font-size: 20px;
     display: flex;
     flex-direction: column;
@@ -287,6 +297,19 @@ h1 {
 
 .texto-infantil img {
     width: 40%;
+    transition: transform 0.3s; 
+}
+
+.texto-infantil img:hover {
+    transform: translateY(-5px);
+}
+.img-personaje img {
+    width: 80%;
+    transition: transform 0.3s; 
+}
+
+.img-personaje img:hover{
+    transform: translateY(5px);
 }
 
 /*calificaciones*/
