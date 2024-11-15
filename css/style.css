@@ -642,13 +642,17 @@ footer a:hover {
     }
 
 }
+
 @media screen and (max-width:2420px) {
+
     /* Ubicar la última imagen en otra posición */
-.galeria-fotos img:last-child {
-    grid-column: 4; /* Cambia a la columna deseada */
-    grid-row: 1; /* Cambia a la fila deseada */
-}
-    
+    .galeria-fotos img:last-child {
+        grid-column: 4;
+        /* Cambia a la columna deseada */
+        grid-row: 1;
+        /* Cambia a la fila deseada */
+    }
+
 }
 
 @media screen and (max-width:2280px) {
@@ -690,26 +694,28 @@ footer a:hover {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     }
+
     .galeria-fotos {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
         gap: 10px;
     }
+
     .galeria-fotos img:nth-child(2) {
         grid-column: span 1;
         grid-row: span 1;
     }
-    
+
     .galeria-fotos img:nth-child(8) {
         grid-column: span 1;
         grid-row: span 1;
     }
-    
+
     .galeria-fotos img:nth-child(10) {
         grid-column: span 1;
         grid-row: span 1;
     }
-    
+
     .galeria-fotos img:nth-child(4) {
         grid-column: span 1;
         grid-row: span 1;
@@ -722,6 +728,7 @@ footer a:hover {
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 
     }
+
     .galeria-fotos {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -734,10 +741,13 @@ footer a:hover {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     }
+
     .galeria-fotos {
         display: grid;
-        grid-template-columns: repeat(2, 1fr); /* Cambiado para dos columnas */
+        grid-template-columns: repeat(2, 1fr);
+        /* Cambiado para dos columnas */
     }
+
     galeria-fotos img {
         width: 80%;
         height: 300px;
@@ -746,16 +756,17 @@ footer a:hover {
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         transition: transform 0.2s;
     }
+
     .galeria-fotos img:nth-child(2) {
         grid-column: span 1;
         grid-row: span 1;
     }
-    
+
     .galeria-fotos img:nth-child(9) {
         grid-column: span 1;
         grid-row: span 1;
     }
-    
+
     .galeria-fotos img:nth-child(16) {
         grid-column: span 1;
         grid-row: span 1;
@@ -925,9 +936,11 @@ footer a:hover {
         width: 60px;
         height: auto;
     }
+
     .galeria-fotos {
         display: grid;
-        grid-template-columns: repeat(1, 1fr); /* Cambiado para dos columnas */
+        grid-template-columns: repeat(1, 1fr);
+        /* Cambiado para dos columnas */
     }
 
 }
