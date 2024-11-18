@@ -375,6 +375,13 @@ h1 {
 .texto-infantil img:hover {
     transform: translateY(-5px);
 }
+.img-personaje img{
+
+    transition: transform 0.3s;
+}
+.img-personaje img:hover {
+    transform: translateY(10px);
+}
 
 
 /*calificaciones*/
