@@ -766,14 +766,6 @@ footer a:hover {
         /* Cambiado para dos columnas */
     }
 
-    galeria-fotos img {
-        width: 80%;
-        height: 300px;
-        object-fit: cover;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        transition: transform 0.2s;
-    }
 
     .galeria-fotos img:nth-child(2) {
         grid-column: span 1;
