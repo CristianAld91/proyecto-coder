@@ -1,3 +1,5 @@
+/*sass --watch scss:css*/
+
 * {
     margin: 0;
     padding: 0;
@@ -89,56 +91,6 @@ h1 {
 
 .button-menu button:hover {
     background-color: #e64919;
-}
-
-/*fondo index*/
-.fondo-contacto {
-    position: relative;
-    background-image: url('../img/home-fondo.jpg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    height: 450px;
-    color: white;
-    margin-bottom: 0;
-}
-
-.fondo-contacto::before {
-    content: '';
-    position: absolute;
-    z-index: 1;
-    /* Asegurade que este detrás del contenido */
-}
-
-.mensaje-consultas {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    z-index: 2;
-    /* Asegura de que este por encima del fondo */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-}
-
-.mensaje-consultas p {
-    margin: 0;
-    font-size: 20px;
-    font-weight: bold;
-    color: white;
-}
-
-.icono-carta a {
-    color: white;
-    font-size: 50px;
-    text-decoration: none;
-}
-
-.icono-carta a:hover {
-    color: #e64919;
 }
 
 /*Main video y texto nosotros*/
@@ -417,6 +369,55 @@ h1 {
 .nombre-comprador {
     font-style: italic;
     color: #ccc;
+}
+/*fondo index*/
+.fondo-contacto {
+    position: relative;
+    background-image: url('../img/home-fondo.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 450px;
+    color: white;
+    margin-bottom: 0;
+}
+
+.fondo-contacto::before {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    /* Asegurade que este detrás del contenido */
+}
+
+.mensaje-consultas {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 2;
+    /* Asegura de que este por encima del fondo */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.mensaje-consultas p {
+    margin: 0;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+}
+
+.icono-carta a {
+    color: white;
+    font-size: 50px;
+    text-decoration: none;
+}
+
+.icono-carta a:hover {
+    color: #e64919;
 }
 
 /*seccion nosotros*/

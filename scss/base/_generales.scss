@@ -1,0 +1,68 @@
+//navbar
+.navbar {
+    font-size: 20px;
+    background: linear-gradient(90deg, #570101, #000000);
+}
+
+.navbar-brand img {
+    width: 130px;
+    /* Tamaño del logo */
+}
+
+/*iconos y hover sobre los iconos del nav*/
+.nav-item img {
+    width: 25px;
+    height: 25px;
+    filter: brightness(10) saturate(80%) invert(80%);
+    margin: 5px;
+}
+
+.nav-item a:hover {
+    background-color: #ff5722;
+    border-radius: 10px;
+}
+
+// Reset de estilos
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+// Estilos del body
+body {
+    background: linear-gradient(45deg, rgb(247, 235, 203), rgb(255, 255, 255));
+}
+
+// Definición de la variable para el botón
+$button-padding: 15px;
+$button-width: 200px;
+$button-background: rgba(0, 0, 0, 0.89);
+$button-color: white;
+$button-border-radius: 5px;
+$button-hover-background: #e64919;
+
+// Mixin para el botón
+@mixin button-menu {
+    padding: $button-padding;
+    width: $button-width;
+    background-color: $button-background;
+    color: $button-color;
+    border: none;
+    border-radius: $button-border-radius;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: 20px;
+
+    &:hover {
+        background-color: $button-hover-background;
+    }
+}
+
+// Uso del mixin en .button-menu
+.button-menu {
+    button {
+        @include button-menu;
+    }
+}
+
