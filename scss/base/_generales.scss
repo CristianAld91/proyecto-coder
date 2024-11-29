@@ -34,35 +34,42 @@ body {
     background: linear-gradient(45deg, rgb(247, 235, 203), rgb(255, 255, 255));
 }
 
-// Definición de la variable para el botón
-$button-padding: 15px;
-$button-width: 200px;
-$button-background: rgba(0, 0, 0, 0.89);
-$button-color: white;
-$button-border-radius: 5px;
-$button-hover-background: #e64919;
-
-// Mixin para el botón
-@mixin button-menu {
-    padding: $button-padding;
-    width: $button-width;
-    background-color: $button-background;
-    color: $button-color;
-    border: none;
-    border-radius: $button-border-radius;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    margin: 20px;
-
-    &:hover {
-        background-color: $button-hover-background;
+.text-container-text {
+    text-align: center; 
+    max-width: 80%;
+    
+    h2 {
+        font-size: 25px; 
+        margin-bottom: 15px;
     }
+    
+    p {
+        font-size: 19px;
+        margin: 10px 0;
+    }
+}  
+
+
+h1 {
+    font-weight: 700;
+    text-align: center;
 }
 
-// Uso del mixin en .button-menu
-.button-menu {
-    button {
-        @include button-menu;
+// Sección de calificaciones
+.calificacion {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+
+    .estrella {
+        font-size: 25px;
+        color: rgb(34, 0, 0);
+        margin-right: 5px;
+        transition: 0.3s;
+
+        &:hover {
+            color: #fffb00;
+            transform: translateY(5px);
+        }
     }
 }
-

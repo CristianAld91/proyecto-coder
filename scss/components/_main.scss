@@ -11,19 +11,9 @@
         font-size: 21px;
     }
 
-    .nosotros-text {
-        display: flex;
-        justify-content: center;
-    }
-
-    h1,
     p,
     .button-menu {
         text-align: center;
-    }
-
-    h1 {
-        font-weight: 700;
     }
 
     .hero-img {
@@ -36,21 +26,6 @@
         }
     }
 
-    .button-menu button {
-        padding: 15px;
-        width: 200px;
-        background-color: #000000e3;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.3s;
-        margin: 20px;
-
-        &:hover {
-            background-color: #e64919;
-        }
-    }
 }
 
 // Main video y texto nosotros
@@ -66,7 +41,9 @@
         border: solid 5px #e64919;
         border-radius: 10px;
     }
+
 }
+
 
 // Card del menú destacado
 .icono-compra {
@@ -105,47 +82,12 @@
     }
 }
 
-.title-productos {
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 20px;
-    font-weight: bold;
-    color: white;
-    background: linear-gradient(135deg, #9c0404, #000000);
-    padding: 15px;
-    text-shadow: 2px 2px 4px rgba(179, 175, 175, 0.5);
-    transition: transform 0.3s, background 0.3s;
-
-    &:hover {
-        background: linear-gradient(135deg, #160b00, #141200);
-    }
-}
-
 .productos-lista {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 20px;
     margin: 10px;
     justify-items: center;
-}
-
-// Sección de calificaciones
-.calificacion {
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
-
-    .estrella {
-        font-size: 25px;
-        color: rgb(34, 0, 0);
-        margin-right: 5px;
-        transition: 0.3s;
-
-        &:hover {
-            color: #fffb00;
-            transform: translateY(5px);
-        }
-    }
 }
 
 // Card del menú
@@ -252,10 +194,6 @@
     width: 100%;
     padding: 10px;
     border: solid 12px #e6af19;
-
-    .producto-infantil img {
-        max-width: 80%;
-    }
 
     .texto-infantil {
         font-size: 20px;
@@ -369,11 +307,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-
-    .text-nosotros {
-        max-width: 600px;
-        margin: 20px;
-    }
+    padding: 20px;
 
     .sucursales {
         background-color: #fdfcf4;
@@ -419,24 +353,6 @@
 // Sección galería
 .galeria {
     margin: 20px;
-
-    .title-galeria {
-        text-align: center;
-        margin-bottom: 20px;
-        font-size: 20px;
-        font-weight: bold;
-        color: white;
-        background: linear-gradient(135deg, #f0d804, #fe5613);
-        padding: 15px;
-        border-radius: 10px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        transition: transform 0.3s, background 0.3s;
-
-        &:hover {
-            background: linear-gradient(135deg, #f82408, #dfe24a);
-        }
-    }
 
     .galeria-fotos {
         display: grid;

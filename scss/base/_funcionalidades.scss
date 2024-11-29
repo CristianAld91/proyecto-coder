@@ -1,0 +1,66 @@
+// Definición de la variable para el botón
+$button-padding: 15px;
+$button-width: 200px;
+$button-background: rgba(0, 0, 0, 0.89);
+$button-color: white;
+$button-border-radius: 5px;
+$button-hover-background: #e64919;
+$font-size: 18px;
+
+// Mixin para el botón
+@mixin button-menu {
+    padding: $button-padding;
+    width: $button-width;
+    background-color: $button-background;
+    color: $button-color;
+    border: none;
+    border-radius: $button-border-radius;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: 20px;
+    font-size: $font-size;
+
+    &:hover {
+        background-color: $button-hover-background;
+    }
+}
+
+// Uso del mixin en .button-menu
+.button-menu {
+    button {
+        @include button-menu;
+    }
+}
+// Variables
+$font-size: 20px;
+$font-weight: bold;
+$text-color: white;
+$background-gradient: linear-gradient(135deg, #9c0404, #000000);
+$hover-background: linear-gradient(135deg, #160b00, #141200);
+$padding: 15px;
+$text-shadow: 2px 2px 4px rgba(179, 175, 175, 0.5);
+$transition: transform 0.3s, background 0.3s;
+
+// Estilos base para el título
+.title-productos {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: $font-size;
+    font-weight: $font-weight;
+    color: $text-color;
+    background: $background-gradient;
+    padding: $padding;
+    text-shadow: $text-shadow;
+    transition: $transition;
+
+    &:hover {
+        background: $hover-background;
+    }
+}
+
+// Extend para reutilizar estilos (si es necesario)
+.title-style {
+    @extend .title-productos;
+}
+
+

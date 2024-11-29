@@ -1,4 +1,35 @@
 @charset "UTF-8";
+.button-menu button {
+  padding: 15px;
+  width: 200px;
+  background-color: rgba(0, 0, 0, 0.89);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin: 20px;
+  font-size: 18px;
+}
+.button-menu button:hover {
+  background-color: #e64919;
+}
+
+.title-productos, .title-style {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  background: linear-gradient(135deg, #9c0404, #000000);
+  padding: 15px;
+  text-shadow: 2px 2px 4px rgba(179, 175, 175, 0.5);
+  transition: transform 0.3s, background 0.3s;
+}
+.title-productos:hover, .title-style:hover {
+  background: linear-gradient(135deg, #160b00, #141200);
+}
+
 .navbar {
   font-size: 20px;
   background: linear-gradient(90deg, #570101, #000000);
@@ -32,19 +63,38 @@ body {
   background: linear-gradient(45deg, rgb(247, 235, 203), rgb(255, 255, 255));
 }
 
-.button-menu button {
-  padding: 15px;
-  width: 200px;
-  background-color: rgba(0, 0, 0, 0.89);
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  margin: 20px;
+.text-container-text {
+  text-align: center;
+  max-width: 80%;
 }
-.button-menu button:hover {
-  background-color: #e64919;
+.text-container-text h2 {
+  font-size: 25px;
+  margin-bottom: 15px;
+}
+.text-container-text p {
+  font-size: 19px;
+  margin: 10px 0;
+}
+
+h1 {
+  font-weight: 700;
+  text-align: center;
+}
+
+.calificacion {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+.calificacion .estrella {
+  font-size: 25px;
+  color: rgb(34, 0, 0);
+  margin-right: 5px;
+  transition: 0.3s;
+}
+.calificacion .estrella:hover {
+  color: #fffb00;
+  transform: translateY(5px);
 }
 
 .hero {
@@ -58,17 +108,9 @@ body {
   margin-right: 10px;
   font-size: 21px;
 }
-.hero .nosotros-text {
-  display: flex;
-  justify-content: center;
-}
-.hero h1,
 .hero p,
 .hero .button-menu {
   text-align: center;
-}
-.hero h1 {
-  font-weight: 700;
 }
 .hero .hero-img {
   max-width: 80%;
@@ -77,20 +119,6 @@ body {
 }
 .hero .hero-img:hover {
   transform: scale(1.1);
-}
-.hero .button-menu button {
-  padding: 15px;
-  width: 200px;
-  background-color: rgba(0, 0, 0, 0.8901960784);
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  margin: 20px;
-}
-.hero .button-menu button:hover {
-  background-color: #e64919;
 }
 
 .video-hamburguesa {
@@ -139,43 +167,12 @@ body {
   transform: scale(1.05);
 }
 
-.title-productos {
-  text-align: center;
-  margin-bottom: 20px;
-  font-size: 20px;
-  font-weight: bold;
-  color: white;
-  background: linear-gradient(135deg, #9c0404, #000000);
-  padding: 15px;
-  text-shadow: 2px 2px 4px rgba(179, 175, 175, 0.5);
-  transition: transform 0.3s, background 0.3s;
-}
-.title-productos:hover {
-  background: linear-gradient(135deg, #160b00, #141200);
-}
-
 .productos-lista {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 20px;
   margin: 10px;
   justify-items: center;
-}
-
-.calificacion {
-  display: flex;
-  justify-content: center;
-  margin-top: 10px;
-}
-.calificacion .estrella {
-  font-size: 25px;
-  color: rgb(34, 0, 0);
-  margin-right: 5px;
-  transition: 0.3s;
-}
-.calificacion .estrella:hover {
-  color: #fffb00;
-  transform: translateY(5px);
 }
 
 .title-menu-img {
@@ -270,9 +267,6 @@ body {
   width: 100%;
   padding: 10px;
   border: solid 12px #e6af19;
-}
-.infantil .producto-infantil img {
-  max-width: 80%;
 }
 .infantil .texto-infantil {
   font-size: 20px;
@@ -371,10 +365,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-.nosotros .text-nosotros {
-  max-width: 600px;
-  margin: 20px;
+  padding: 20px;
 }
 .nosotros .sucursales {
   background-color: #fdfcf4;
@@ -414,22 +405,6 @@ body {
 
 .galeria {
   margin: 20px;
-}
-.galeria .title-galeria {
-  text-align: center;
-  margin-bottom: 20px;
-  font-size: 20px;
-  font-weight: bold;
-  color: white;
-  background: linear-gradient(135deg, #f0d804, #fe5613);
-  padding: 15px;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  transition: transform 0.3s, background 0.3s;
-}
-.galeria .title-galeria:hover {
-  background: linear-gradient(135deg, #f82408, #dfe24a);
 }
 .galeria .galeria-fotos {
   display: grid;
@@ -587,7 +562,7 @@ footer a:hover {
     color: #ec4015;
     transition: color 0.3s;
   }
-  .title-productos {
+  .title-productos, .title-style {
     font-size: 14px;
     text-align: center;
     margin: 10px;
