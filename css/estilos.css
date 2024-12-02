@@ -533,7 +533,7 @@ footer a:hover {
   }
 }
 @media screen and (max-width: 2420px) {
-  .galeria-fotos img:last-child {
+  .galeria .galeria-fotos img:last-child {
     grid-column: 4;
     grid-row: 1;
   }
@@ -543,17 +543,46 @@ footer a:hover {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
   }
+  .galeria .galeria-fotos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 10px;
+  }
+}
+@media screen and (max-width: 2110px) {
+  .galeria .galeria-fotos img:last-child {
+    grid-column: 7;
+    grid-row: 16;
+  }
 }
 @media screen and (max-width: 2080px) {
   .productos-lista {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
   }
+  .galeria .galeria-fotos img:last-child {
+    grid-column: 2;
+    grid-row: 3;
+  }
 }
 @media screen and (max-width: 1880px) {
   .productos-lista {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  }
+  .galeria .galeria-fotos img:last-child {
+    grid-column: 2;
+    grid-row: 3;
+  }
+}
+@media screen and (max-width: 1850px) {
+  .productos-lista {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  }
+  .galeria .galeria-fotos img:last-child {
+    grid-column: 1;
+    grid-row: 3;
   }
 }
 @media screen and (max-width: 1680px) {
@@ -571,14 +600,14 @@ footer a:hover {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   }
-  .galeria-fotos {
+  .galeria .galeria-fotos {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(200px, 2fr));
     gap: 10px;
   }
-  .galeria-fotos img:nth-child(2), .galeria-fotos img:nth-child(4), .galeria-fotos img:nth-child(6), .galeria-fotos img:nth-child(10) {
-    grid-column: span 1;
-    grid-row: span 1;
+  .galeria .galeria-fotos img img:last-child {
+    grid-column: 4;
+    grid-row: 1;
   }
 }
 @media screen and (max-width: 1480px) {
@@ -586,23 +615,27 @@ footer a:hover {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   }
-  .galeria-fotos {
+  .galeria-fotos .galeria-fotos {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
   }
 }
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 1290px) {
   .productos-lista {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   }
-  .galeria-fotos {
+  .galeria-fotos .galeria-fotos {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
   }
-  .galeria-fotos img:nth-child(2), .galeria-fotos img:nth-child(9), .galeria-fotos img:nth-child(16) {
+  .galeria .galeria-fotos img:nth-child(2), .galeria .galeria-fotos img:nth-child(4), .galeria .galeria-fotos img:nth-child(6), .galeria .galeria-fotos img:nth-child(10) {
     grid-column: span 1;
     grid-row: span 1;
+  }
+  .galeria .galeria-fotos img .galeria .galeria-fotos img:last-child {
+    grid-column: 4;
+    grid-row: 4;
   }
 }
 @media screen and (max-width: 1880px) {
@@ -611,11 +644,11 @@ footer a:hover {
     margin-right: 5px;
     font-size: 15px;
   }
-  .texto-infantil {
+  .infantil .texto-infantil {
     font-size: 16px;
     max-width: 42%;
   }
-  .texto-infantil img {
+  .infantil .texto-infantil .infantil .texto-infantil img {
     width: 60%;
   }
   footer {
@@ -633,7 +666,7 @@ footer a:hover {
   }
 }
 @media screen and (max-width: 1080px) {
-  .text-container {
+  .text-container-text {
     max-width: 50%;
     font-size: 18px;
   }
@@ -657,15 +690,18 @@ footer a:hover {
     max-width: 100%;
     border-radius: 5px;
   }
-  .img-personaje img {
-    display: none;
+  .infantil .texto-infantil img {
+    width: 60%;
   }
-  .texto-infantil img {
-    width: 40%;
+  .title-menu-img {
+    width: 70%;
+    max-width: 100px;
+    margin: 0 auto;
   }
-  .texto-infantil {
+  .infantil .texto-infantil {
+    max-width: 100%;
     font-size: 16px;
-    max-width: 50%;
+    max-width: 40%;
     justify-content: center;
   }
   .producto-menu {
@@ -682,15 +718,15 @@ footer a:hover {
     flex-direction: column-reverse;
     margin: 20px;
   }
-  .text-container {
+  .hero .text-container {
     max-width: 100%;
     font-size: 18px;
   }
-  .nosotros-text {
+  .text-container-text {
     max-width: 100%;
     font-size: 22px;
   }
-  .hero-img {
+  .hero .hero-img {
     max-width: 60%;
     margin: 0 auto;
     display: block;
@@ -712,6 +748,9 @@ footer a:hover {
   .producto-menu {
     width: calc(50% - 20px);
   }
+  .img-personaje img {
+    display: none;
+  }
 }
 @media screen and (max-width: 680px) {
   .productos-lista {
@@ -719,18 +758,17 @@ footer a:hover {
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     justify-content: center;
   }
-  .text-container {
-    font-size: 14px;
+  .text-container-text h2 {
+    font-size: 24px;
   }
-  .nosotros-text {
-    max-width: 100%;
-    font-size: 20px;
+  .text-container-text p {
+    font-size: 16px;
   }
-  .logo-empresa {
+  .delivery .empresas-envio .logo-empresa {
     width: 60px;
     height: auto;
   }
-  .galeria-fotos {
+  .galeria .galeria-fotos {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
   }
@@ -739,21 +777,48 @@ footer a:hover {
   .producto-menu {
     width: 40%;
   }
+  .infantil {
+    align-items: center;
+  }
+  .infantil .texto-infantil {
+    font-size: 14px;
+    max-width: 80%;
+  }
+  .infantil .texto-infantil .infantil .texto-infantil img {
+    width: 30%;
+  }
 }
 @media screen and (max-width: 480px) {
   .infantil {
     flex-direction: column;
     align-items: center;
   }
-  .texto-infantil {
-    font-size: 14px;
+  .infantil .texto-infantil {
     max-width: 100%;
   }
-  .texto-infantil img {
+  .infantil .texto-infantil .infantil .texto-infantil img {
     width: 40%;
   }
   .producto-menu {
     width: 100%;
+  }
+  .title-menu-img img {
+    width: 350px;
+    height: auto;
+    margin: 10px auto;
+  }
+}
+@media screen and (max-width: 380px) {
+  .delivery .empresas-envio .logo-empresa {
+    width: 40px;
+    height: auto;
+  }
+}
+@media screen and (max-width: 340px) {
+  .title-menu-img img {
+    width: 200px;
+    height: auto;
+    margin: 10px auto;
   }
 }
 
