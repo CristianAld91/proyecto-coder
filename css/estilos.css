@@ -281,6 +281,7 @@ h1 {
   align-items: center;
   line-height: 2;
   padding: 20px;
+  text-align: justify;
 }
 .infantil .texto-infantil img {
   width: 40%;
@@ -799,7 +800,7 @@ footer a:hover {
   }
   .infantil .texto-infantil {
     font-size: 14px;
-    max-width: 80%;
+    max-width: 50%;
   }
   .infantil .texto-infantil .infantil .texto-infantil img {
     width: 30%;
