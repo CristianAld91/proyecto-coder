@@ -1,7 +1,7 @@
 //navbar
 .navbar {
     font-size: 20px;
-    background: linear-gradient(90deg, #570101, #000000);
+    background: nth($colores-gradient, 1);//$colores-gradient (1)
 }
 
 .navbar-brand img {
@@ -31,7 +31,7 @@
 
 // Estilos del body
 body {
-    background: linear-gradient(45deg, rgb(247, 235, 203), rgb(255, 255, 255));
+    background: nth($colores-gradient, 2);//$colores-gradient (2)
 }
 
 .text-container-text {

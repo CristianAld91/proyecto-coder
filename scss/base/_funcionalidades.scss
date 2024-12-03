@@ -1,23 +1,15 @@
-// Definición de la variable para el botón
-$button-padding: 15px;
-$button-width: 200px;
-$button-background: rgba(0, 0, 0, 0.89);
-$button-color: white;
-$button-border-radius: 5px;
-$button-hover-background: #e64919;
-$font-size: 18px;
 
-// Mixin para el botón
-@mixin button-menu {
+// Mixin para el boton
+@mixin button-menu ($button-padding, $button-width, $button-background, $button-color, $border-button, $button-border-radius, $cursor-pointer, $transition-button,$margin-button,$button-hover-background, $font-size){
     padding: $button-padding;
     width: $button-width;
     background-color: $button-background;
     color: $button-color;
-    border: none;
+    border: $border-button;
     border-radius: $button-border-radius;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    margin: 20px;
+    cursor: $cursor-pointer;
+    transition: $transition-button;
+    margin: $margin-button;
     font-size: $font-size;
 
     &:hover {
@@ -28,7 +20,7 @@ $font-size: 18px;
 // Uso del mixin en .button-menu
 .button-menu {
     button {
-        @include button-menu;
+        @include button-menu(15px, 200px, rgba(0, 0, 0, 0.89), white, none, 5px, pointer, background-color 0.3s, 20px, #e64919, 18px );
     }
 }
 // Variables
@@ -42,9 +34,7 @@ $text-shadow: 2px 2px 4px rgba(179, 175, 175, 0.5);
 $transition: transform 0.3s, background 0.3s;
 
 // Estilos base para el título
-.title-productos {
-    text-align: center;
-    margin-bottom: 20px;
+%title-producto {
     font-size: $font-size;
     font-weight: $font-weight;
     color: $text-color;
@@ -58,9 +48,15 @@ $transition: transform 0.3s, background 0.3s;
     }
 }
 
-// Extend para reutilizar estilos (si es necesario)
-.title-style {
-    @extend .title-productos;
+// Extend para reutilizar estilos 
+.title-productos {
+    text-align: center;
+    margin-bottom: 20px;
+    @extend %title-producto;
 }
 
-
+//lista para de gradient
+$colores-gradient: linear-gradient(90deg, #570101, #000000)/*header*/, linear-gradient(45deg, rgb(247, 235, 203), rgb(255, 255, 255)),/**body**/linear-gradient(to right, #eee7998c, #f8e40b8c)/**footer**/; 
+//titulo contacto
+$primary-color: #525353;
+$font-stack: 'Arial', sans-serif;

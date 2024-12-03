@@ -22,7 +22,7 @@ footer {
     flex-wrap: wrap;
     justify-content: space-between;
     padding: 20px;
-    background: linear-gradient(to right, #eee7998c, #f8e40b8c);
+    background: nth($colores-gradient, 3);//$colores-gradient (3)
     border-top: 1px solid #ffffff;
     color: rgb(5, 0, 0);
 

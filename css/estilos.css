@@ -15,9 +15,7 @@
   background-color: #e64919;
 }
 
-.title-productos, .title-style {
-  text-align: center;
-  margin-bottom: 20px;
+.title-productos {
   font-size: 20px;
   font-weight: bold;
   color: white;
@@ -26,8 +24,13 @@
   text-shadow: 2px 2px 4px rgba(179, 175, 175, 0.5);
   transition: transform 0.3s, background 0.3s;
 }
-.title-productos:hover, .title-style:hover {
+.title-productos:hover {
   background: linear-gradient(135deg, #160b00, #141200);
+}
+
+.title-productos {
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 .navbar {
@@ -360,6 +363,9 @@ h1 {
   color: white;
   font-size: 50px;
 }
+.fondo-contacto .mensaje-consultas .icono-carta a:hover {
+  color: #e64919;
+}
 
 .nosotros {
   display: flex;
@@ -428,6 +434,17 @@ h1 {
 .galeria .galeria-fotos img:nth-child(10) {
   grid-column: span 2;
   grid-row: span 1;
+}
+
+.contacto-title {
+  padding: 20px;
+  text-align: center;
+}
+.contacto-title h1 {
+  color: #525353;
+  font-family: "Arial", sans-serif;
+  font-size: 2.5rem;
+  margin: 0;
 }
 
 .contacto {
@@ -591,7 +608,7 @@ footer a:hover {
     color: #ec4015;
     transition: color 0.3s;
   }
-  .title-productos, .title-style {
+  .title-productos {
     font-size: 14px;
     text-align: center;
     margin: 10px;

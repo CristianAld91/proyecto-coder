@@ -299,7 +299,11 @@
         .icono-carta a {
             color: white;
             font-size: 50px;
+            &:hover{
+                color: #e64919;
+            }
         }
+
     }
 }
 // Sección nosotros
@@ -383,6 +387,17 @@
     }
 }
 // Sección contacto
+.contacto-title {
+    padding: 20px;
+    text-align: center;
+
+    h1 {
+        color: $primary-color;
+        font-family: $font-stack;
+        font-size: 2.5rem;
+        margin: 0;
+    }
+}
 .contacto {
     max-width: 600px;
     margin: 20px auto;
