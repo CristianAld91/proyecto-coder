@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 // Mixin para el boton
 @mixin button-menu ($button-padding, $button-width, $button-background, $button-color, $border-button, $button-border-radius, $cursor-pointer, $transition-button,$margin-button,$button-hover-background, $font-size){
     padding: $button-padding;
@@ -61,3 +61,24 @@ $colores-gradient: linear-gradient(90deg, #570101, #000000)/*header*/, linear-gr
 //titulo contacto
 $primary-color: #525353;
 $font-stack: 'Arial', sans-serif;
+
+// Variables
+$precio-text-color: #d87504b2; 
+$precio-font-size: 0.9em; 
+$precio-font-family: 'Press Start 2P', cursive; // Estilo de letra digital
+
+// Mixin
+@mixin precio {
+    color: $precio-text-color;
+    font-weight: bold;
+    display: inline-block;
+    font-size: $precio-font-size;
+    font-family: $precio-font-family; // Aplicando el estilo de letra digital
+}
+
+// Estilo para el producto
+
+    .precio {
+        @include precio; //mixin
+    }
+

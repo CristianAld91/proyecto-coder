@@ -1,4 +1,5 @@
 @charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
 .button-menu button {
   padding: 15px;
   width: 200px;
@@ -31,6 +32,14 @@
 .title-productos {
   text-align: center;
   margin-bottom: 20px;
+}
+
+.precio {
+  color: rgba(216, 117, 4, 0.6980392157);
+  font-weight: bold;
+  display: inline-block;
+  font-size: 0.9em;
+  font-family: "Press Start 2P", cursive;
 }
 
 .navbar {
