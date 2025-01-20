@@ -4,18 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>El rey de la hamburguesa │ Las mejores hamburguesas estan acá</title>
-    <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
-    <meta name="description" content="Disfruta de nuestras hamburguesas elaboradas con 100% carne de primera calidad. Sabor excepcional y frescura garantizada en cada bocado. ¡Ven y prueba la diferencia!">
     <meta name="keywords"
         content="rey, burger, hamburguesa, galeria, delivery, papas, ensaladas, menu, napo, infantil, pollo, Muzzarella, bacon, frito, ensaladas, mega, destacados, cheddar">
-        <meta property="og:url" content="https://https://elreydelahamburguesa.netlify.app/"/>
-        <meta property="og:type" content="Landing page"/>
-        <meta property="og:title" content=">El rey de la hamburguesa │ Las mejores hamburguesas estan acá"/>
-        <meta property="og:description" content="Hamburguesas 100% de carne vacuna"/>
-        <meta property="og:image" content="https://https://elreydelahamburguesa.netlify.app/img/logoburger.png"/>
-        <title>El rey de la hamburguesa │ Las mejores hamburguesas estan acá</title>
-        <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
+    <meta name="description"
+        content="Disfruta de nuestras hamburguesas elaboradas con 100% carne de primera calidad. Sabor excepcional y frescura garantizada en cada bocado. ¡Ven y prueba la diferencia!">
+    <meta property="og:url" content="https://elreydelahamburguesa.netlify.app/" />
+    <meta property="og:type" content="Landing page" />
+    <meta property="og:title" content="El rey de la hamburguesa" />
+    <meta property="og:description" content="Hamburguesas 100% de carne vacuna" />
+    <meta property="og:image" content="https://elreydelahamburguesa.netlify.app/img/logoburger.png" />
+    <title>El rey de la hamburguesa │ Las mejores hamburguesas estan acá</title>
+    <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
     <!--bootstrap-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -23,6 +22,8 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <!-- icono-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- SweetAlert -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
     <!--css de estilos-->
     <!--<link rel="stylesheet" href="../css/style.css">-->
     <link rel="stylesheet" href="../css/estilos.css">
@@ -45,24 +46,25 @@
                         <a class="nav-link" href="../index.html">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./menu.html">Menú</a>
+                        <a class="nav-link" href="./pages/menu.html">Menú</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./nosotros.html">Nosotros</a>
+                        <a class="nav-link" href="../pages/nosotros.html">Nosotros</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./galeria.html">Galería</a>
+                        <a class="nav-link" href="../pages/galeria.html">Galería</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./contacto.html">Contacto</a>
+                        <a class="nav-link" href="../pages/contacto.html">Contacto</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><img src="../img/carrito.png" alt="carrito"></a>
+                        <a class="nav-link" href="../pages/carrito.html"><img src="../img/carrito.png" alt="carrito"
+                                style="width: 24px;"></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><img src="../img/user.png" alt="user"></a>
+                        <a class="nav-link" href="../pages/usuario.html"><img src="../img/user.png" alt="user" style="width: 24px;"></a>
                     </li>
                 </ul>
             </div>
@@ -554,6 +556,9 @@
             <p>Developed by Cristian Alderete</p>
         </div>
     </footer>
+    <script src="../js/carrito.js"></script>
+    <!--sweetalert-->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
 </body>
 
 </html>
