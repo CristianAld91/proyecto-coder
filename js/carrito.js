@@ -1,3 +1,9 @@
+/*Para esta entrega pense en comenzar con algo basico utilizando lo visto en clase y ademas de algunos conocimientos que tengo en js. Trabajare principalmente en el carrito agregando eventos a cada prodecto.
+a cada item de compra, luego se podra visualizar en el carrito los producto.
+El local storage servira de base de datos para el guardado de producto y usuarios que luego daran sentido a la logica actual.
+Mas avanzado el proyecto pensaba utilizar JSON para desarrollar los articulos y reemplazar los actuales divs.
+
+*/
 // Selecciona todos los productos del index
 function obtenerProductos() {
     const productosDivs = document.querySelectorAll('.producto, .producto-menu');
