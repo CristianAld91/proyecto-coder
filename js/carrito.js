@@ -1,5 +1,5 @@
-/*Para esta entrega pense en comenzar con algo basico utilizando lo visto en clase y ademas de algunos conocimientos que tengo en js. Trabajare principalmente en el carrito agregando eventos a cada prodecto.
-a cada item de compra, luego se podra visualizar en el carrito los producto.
+/*Para esta entrega pense en comenzar con algo basico utilizando lo visto en clase y ademas de algunos conocimientos que tengo en js. Trabajare principalmente en el carrito agregando alertas al hacer click en el icono de compra.
+Despues agregue una funcion que obtiene los datos de los productos y los convierte en array y mediante el uso del console.log se visualizan en la consola.
 El local storage servira de base de datos para el guardado de producto y usuarios que luego daran sentido a la logica actual.
 Mas avanzado el proyecto pensaba utilizar JSON para desarrollar los articulos y reemplazar los actuales divs.
 
@@ -14,14 +14,16 @@ function obtenerProductos() {
             nombre: producto.querySelector('.title-menu').textContent.trim(),
             imagen: producto.querySelector('img').src,
             descripcion: producto.querySelector('p').textContent.trim(),
-            precio: parseFloat(producto.querySelector('.precio span').textContent.replace('$', '')).toFixed(3)
+            precio: parseFloat(producto.querySelector('.precio span').textContent.replace('$', '')).toFixed(3)//agrega decimales
         };
     });
 }
 
-// Los muestra en local storage
+// Los muestra en local storage 
 let productosArray = obtenerProductos();
 console.log(productosArray);
+
+let contadorClick = [];//guarda los clicks
 
 // Función para agregar evento en el boton click y sweetalert
 function clickEnBoton() {
@@ -31,6 +33,11 @@ function clickEnBoton() {
     comprar.forEach(botonComprar => {
 
         botonComprar.addEventListener('click', function () {
+                // Incrementa el contador
+                contadorClick++;
+            
+                // Muestra el contador en consola
+                console.log('Número de clics: ' + contadorClick);
             //mensaje de sweetalert
             Swal.fire({
                 title: '¡Éxito!',
@@ -40,6 +47,7 @@ function clickEnBoton() {
             });
         });
     });
+    
 }
 
 // Llama a la funcion
