@@ -14,7 +14,7 @@ function obtenerProductos() {
             nombre: producto.querySelector('.title-menu').textContent.trim(),
             imagen: producto.querySelector('img').src,
             descripcion: producto.querySelector('p').textContent.trim(),
-            precio: parseFloat(producto.querySelector('.precio span').textContent.replace('$', '')).toFixed(3)//agrega decimales
+            precio: parseInt(producto.querySelector('.precio span').textContent.replace('$', '')).toFixed(3)//agrega decimales
         };
     });
 }
@@ -22,8 +22,8 @@ function obtenerProductos() {
 // Los muestra en local storage 
 let productosArray = obtenerProductos();
 console.log(productosArray);
-
-let contadorClick = [];//guarda los clicks
+let contadorClick = 0;//incializa en 0 para que cada vez que se haga click se guenden en array en localstorage
+let clickArray = [];//guarda los clicks
 
 // Función para agregar evento en el boton click y sweetalert
 function clickEnBoton() {
@@ -35,9 +35,10 @@ function clickEnBoton() {
         botonComprar.addEventListener('click', function () {
                 // Incrementa el contador
                 contadorClick++;
-            
+
+                clickArray.push(contadorClick);
                 // Muestra el contador en consola
-                console.log('Número de clics: ' + contadorClick);
+                console.log('Número de clics: ' , clickArray);
             //mensaje de sweetalert
             Swal.fire({
                 title: '¡Éxito!',
