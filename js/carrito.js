@@ -38,7 +38,7 @@ function clickEnBoton() {
 
                 clickArray.push(contadorClick);
                 // Muestra el contador en consola
-                console.log('Número de clics: ' , clickArray);
+                console.log('Numero de clics: ' , clickArray);
             //mensaje de sweetalert
             Swal.fire({
                 title: '¡Éxito!',
