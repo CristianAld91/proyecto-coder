@@ -19,10 +19,10 @@ function obtenerProductos() {
     });
 }
 
-// Los muestra en local storage 
+// Los muestra en la consola
 let productosArray = obtenerProductos();
 console.log(productosArray);
-let contadorClick = 0;//incializa en 0 para que cada vez que se haga click se guenden en array en localstorage
+let contadorClick = 0;//incializa en 0 para que cada vez que se haga click se guenden en array 
 let clickArray = [];//guarda los clicks
 
 // Función para agregar evento en el boton click y sweetalert
