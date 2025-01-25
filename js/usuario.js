@@ -34,3 +34,4 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
 });
 
 //este codigo todavia esta en proceso... falta que se visualice en la parte superior el nombre de usuario y algunos detalles mas...
+
