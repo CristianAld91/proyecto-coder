@@ -1,0 +1,39 @@
+{
+    "productosDestacados": [
+        {
+            "nombre": "Papas Fritas",
+            "imagen": "./img/papas-fritas.png",
+            "descripcion": "Las mejores papas, la cocción justa las encuentras acá. Además tienen nuestra salsa especial y mucho quesooo!",
+            "precio": 6500
+        },
+        {
+            "nombre": "Pollo Frito",
+            "imagen": "./img/pollo-frito.png",
+            "descripcion": "Fuuaa mira lo que es eso, una locura",
+            "precio": 5000
+        },
+        {
+            "nombre": "Hamburguesa Mega",
+            "imagen": "./img/hamburguesa-grande.png",
+            "descripcion": "Esta hamburguesa es todo lo que está bien.",
+            "precio": 9500
+        },
+        {
+            "nombre": "Especial de la casa",
+            "imagen": "./img/de-la-casa.png",
+            "descripcion": "Mucha, mucha carne... y un bacon, mucho bacon",
+            "precio": 8500
+        }
+    ],
+
+
+    "productosInfantil": [
+        {
+            "nombre": "Papas Fritas",
+            "imagen": "./img/papas-fritas.png",
+            "descripcion": "Las mejores papas, la cocción justa las encuentras acá. Además tienen nuestra salsa especial y mucho quesooo!",
+            "precio": 6500
+        }
+    ]
+}
+

@@ -4,6 +4,42 @@ El local storage servira de base de datos para el guardado de producto y usuario
 Mas avanzado el proyecto pensaba utilizar JSON para desarrollar los articulos y reemplazar los actuales divs.
 
 */
+
+const productosLista = document.getElementById('productos-lista'); // crea la constante productosLista para luego mostrar en pantalla los datos del archivo JSON
+
+fetch('../js/productos.json') //archivo JSON
+    .then(response => response.json()) 
+    .then(data => {
+        data.productosDestacados.forEach(producto => { // llama solo a los productos destacados
+            const productoDiv = document.createElement('div');
+            productoDiv.classList.add('producto');
+
+            productoDiv.innerHTML = `
+                <div class="icono-compra" data-id="${producto.id}">
+                    <i class="fas fa-shopping-cart"></i>
+                </div>
+                <h2 class="title-menu">${producto.nombre}</h2>
+                <img src="${producto.imagen}" alt="${producto.nombre}">
+                <p>${producto.descripcion}</p>
+                <div class="precio">
+                    <span>$${producto.precio.toLocaleString('es-CL')}</span>
+                </div>
+                <div class="calificacion">
+                    <span class="estrella">&#9733;</span>
+                    <span class="estrella">&#9733;</span>
+                    <span class="estrella">&#9733;</span>
+                    <span class="estrella">&#9733;</span>
+                    <span class="estrella">&#9733;</span>
+                </div>
+            `;
+
+            productosLista.appendChild(productoDiv);
+        });
+        
+        clickEnBoton();
+    });
+
+
 // Selecciona todos los productos del index
 function obtenerProductos() {
     const productosDivs = document.querySelectorAll('.producto, .producto-menu');
@@ -16,8 +52,10 @@ function obtenerProductos() {
             descripcion: producto.querySelector('p').textContent.trim(),
             precio: parseInt(producto.querySelector('.precio span').textContent.replace('$', '')).toFixed(3)//agrega decimales
         };
+        
     });
 }
+
 
 // Los muestra en la consola
 let productosArray = obtenerProductos();
@@ -33,12 +71,12 @@ function clickEnBoton() {
     comprar.forEach(botonComprar => {
 
         botonComprar.addEventListener('click', function () {
-                // Incrementa el contador
-                contadorClick++;
+            // Incrementa el contador
+            contadorClick++;
 
-                clickArray.push(contadorClick);
-                // Muestra el contador en consola
-                console.log('Numero de clics: ' , clickArray);
+            clickArray.push(contadorClick);
+            // Muestra el contador en consola
+            console.log('Numero de clics: ', clickArray);
             //mensaje de sweetalert
             Swal.fire({
                 title: '¡Éxito!',
@@ -48,7 +86,7 @@ function clickEnBoton() {
             });
         });
     });
-    
+
 }
 
 // Llama a la funcion
