@@ -6,20 +6,20 @@ Mas avanzado el proyecto pensaba utilizar JSON para desarrollar los articulos y 
 */
 
 const productosLista = document.getElementById('productos-lista'); // crea la constante productosLista para luego mostrar en pantalla los datos del archivo JSON
-
 fetch('../js/productos.json') //archivo JSON
     .then(response => response.json()) 
     .then(data => {
         data.productosDestacados.forEach(producto => { // llama solo a los productos destacados
             const productoDiv = document.createElement('div');
             productoDiv.classList.add('producto');
-
+            const imageVistas = window.location.pathname.includes('menu.html') ? `../${producto.imagen}` : `./${producto.imagen}`;// cree una constante para que la imagen se vea en las dos paginas
+            const clickBotonMenu = window.location.pathname.includes('menu.html') ? `../${producto.id}` : `./${producto.id}`;
             productoDiv.innerHTML = `
-                <div class="icono-compra" data-id="${producto.id}">
+                <div class="icono-compra" data-id="${clickBotonMenu}">
                     <i class="fas fa-shopping-cart"></i>
                 </div>
                 <h2 class="title-menu">${producto.nombre}</h2>
-                <img src="${producto.imagen}" alt="${producto.nombre}">
+                <img src="${imageVistas}" alt="${producto.nombre}">
                 <p>${producto.descripcion}</p>
                 <div class="precio">
                     <span>$${producto.precio.toLocaleString('es-CL')}</span>
@@ -39,10 +39,42 @@ fetch('../js/productos.json') //archivo JSON
         clickEnBoton();
     });
 
+const productoInfantil = document.getElementById('productos-infantil'); //repeti la funcion para que sirva con otro producto guardado en json
+fetch('../js/productos.json')
+.then(response => response.json())
+.then(data=> {
+    data.productosInfantil.forEach(producto =>{
+        const productoDivInfantil = document.createElement('div');
+        productoDivInfantil.classList.add('producto');
+
+        productoDivInfantil.innerHTML = `
+                <div class="icono-compra" data-id="${producto.id}">
+                    <i class="fas fa-shopping-cart"></i>
+                </div>
+                <h2 class="title-menu">${producto.nombre}</h2>
+                <img src="${producto.imagen}" alt="${producto.nombre}">
+                <p>${producto.descripcion}</p>
+                <div class="precio">
+                    <span>$${producto.precio.toLocaleString('es-CL')}</span>
+                </div>
+                <div class="calificacion">
+                    <span class="estrella">&#9733;</span>
+                    <span class="estrella">&#9733;</span>
+                    <span class="estrella">&#9733;</span>
+                    <span class="estrella">&#9733;</span>
+                    <span class="estrella">&#9733;</span>
+                </div>
+            `;
+
+            productoInfantil.appendChild(productoDivInfantil);
+        });
+        clickEnBoton();
+    });
+    
 
 // Selecciona todos los productos del index
 function obtenerProductos() {
-    const productosDivs = document.querySelectorAll('.producto, .producto-menu');
+    const productosDivs = document.querySelectorAll('.producto');
 
     // Convierte los productos en array
     return Array.from(productosDivs).map(producto => {
@@ -60,6 +92,7 @@ function obtenerProductos() {
 // Los muestra en la consola
 let productosArray = obtenerProductos();
 console.log(productosArray);
+
 let contadorClick = 0;//incializa en 0 para que cada vez que se haga click se guenden en array 
 let clickArray = [];//guarda los clicks
 

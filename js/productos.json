@@ -34,6 +34,119 @@
             "descripcion": "Las mejores papas, la cocción justa las encuentras acá. Además tienen nuestra salsa especial y mucho quesooo!",
             "precio": 6500
         }
-    ]
-}
+    ],
+    
+        "productosMenu": [
+            {
+                "nombre": "Burger doble",
+                "imagen": "../img/burger-doble.png",
+                "descripcion": "Doble carne, doble queso!!!!mmmm....",
+                "precio": 7500
+            },
+            {
+                "nombre": "burger cuadruple",
+                "imagen": "../img/burger-cuadruple.png",
+                "descripcion": "Una locura...",
+                "precio": 12000
+            },
+            {
+                "nombre": "Mega napo",
+                "imagen": "../img/mega-napo.png",
+                "descripcion": "Carne, queso y al estilo napolitano",
+                "precio": 8000
+            },
+            {
+                "nombre": "Ensalada de atún",
+                "imagen": "../img/ensalada-atun.png",
+                "descripcion": "Si estás a dieta, esta es una buena opción",
+                "precio": 4000
+            },
+            {
+                "nombre": "Ensalada caesar",
+                "imagen": "../img/caesar.png",
+                "descripcion": "Ensalada más pollo",
+                "precio": 4500
+            },
+            {
+                "nombre": "Burger bacon",
+                "imagen": "../img/burger-bacon.png",
+                "descripcion": "El cheddar y el bacon... la combinación perfecta",
+                "precio": 8000
+            },
+            {
+                "nombre": "Bastones de Muzzarella",
+                "imagen": "../img/Muzzarellitas.png",
+                "descripcion": "Las mejores papas, la cocción justa las encuentras acá!",
+                "precio": 5500
+            },
+            {
+                "nombre": "Burger de pollo",
+                "imagen": "../img/burger-pollo.png",
+                "descripcion": "El mejor pollo grillado acompañado de cebolla, tomate...",
+                "precio": 5800
+            }
+        ],
+        
+            "bebidas": [
+                {
+                    "nombre": "Cerveza negra",
+                    "imagen": "../img/cerveza-negra.png",
+                    "descripcion": "Con su profundo color oscuro y sabor único",
+                    "precio": 4000,
+                    "calificacion": 5
+                },
+                {
+                    "nombre": "Cerveza rubia",
+                    "imagen": "../img/cerveza-rubia.png",
+                    "descripcion": "Con su color dorado y un sabor suave",
+                    "precio": 4200,
+                    "calificacion": 5
+                },
+                {
+                    "nombre": "Cerveza roja",
+                    "imagen": "../img/cerveza-roja.png",
+                    "descripcion": "La cerveza roja destaca por su color ámbar intenso",
+                    "precio": 4100,
+                    "calificacion": 5
+                },
+                {
+                    "nombre": "Daikiri",
+                    "imagen": "../img/daikiri.png",
+                    "descripcion": "Una mezcla refrescante de ron, jugo de lima y azúcar",
+                    "precio": 4900,
+                    "calificacion": 3
+                },
+                {
+                    "nombre": "Mai tai",
+                    "imagen": "../img/mai-tai.png",
+                    "descripcion": "Cóctel tropical es una explosión de sabores caribeños",
+                    "precio": 6000,
+                    "calificacion": 4
+                },
+                {
+                    "nombre": "Fernet",
+                    "imagen": "../img/fernet.png",
+                    "descripcion": "Con su intenso sabor amargo y herbal",
+                    "precio": 5000,
+                    "calificacion": 4
+                },
+                {
+                    "nombre": "Jugo naranja",
+                    "imagen": "../img/jugo-naranja.png",
+                    "descripcion": "Refrescante y lleno de vitamina C",
+                    "precio": 3300,
+                    "calificacion": 3
+                },
+                {
+                    "nombre": "Licuado de frutilla",
+                    "imagen": "../img/licuado-frutilla.png",
+                    "descripcion": "Disfruta de frutillas frescas con un poco de leche",
+                    "precio": 3900,
+                    "calificacion": 5
+                }
+            ]
+        }
+        
+    
+
 

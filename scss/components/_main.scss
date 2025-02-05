@@ -83,7 +83,6 @@
     
 }
 
-
 .productos-lista {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -112,14 +111,38 @@
     font-size: 20px;
 }
 
-.productos-list-menu {
+.infantil {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
     gap: 10px;
 }
 
-.producto-menu {
+.productos-infantil{
+    position: relative;
+
+    border-radius: 5px;
+    padding: 10px;
+   
+    width: calc(25% - 20px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+
+    img {
+        max-width: 50%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+        transition: transform 0.3s;
+
+        &:hover {
+            transform: scale(1.05);
+        }
+    }
+}
+.producto-menu{
     position: relative;
     background: #f7f3b55e;
     border-radius: 5px;
@@ -143,7 +166,6 @@
         }
     }
 }
-
 // Iconos de compra
 .icono-compra {
     display: flex;

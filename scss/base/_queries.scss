@@ -179,7 +179,7 @@
     }
 
     // Card menú
-    .producto-menu {
+    .producto-menu, .productos-infantil {
         width: calc(25% - 20px);
 
         .title-menu-img img {
@@ -325,7 +325,7 @@
 }
 
 @media screen and (max-width: 580px) {
-    .producto-menu {
+    .producto-menu, .productos-infantil {
         width: 40%;
     }
     .infantil {

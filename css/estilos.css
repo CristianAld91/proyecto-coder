@@ -204,11 +204,32 @@ h1 {
   font-size: 20px;
 }
 
-.productos-list-menu {
+.infantil {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
   gap: 10px;
+}
+
+.productos-infantil {
+  position: relative;
+  border-radius: 5px;
+  padding: 10px;
+  width: calc(25% - 20px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.productos-infantil img {
+  max-width: 50%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  transition: transform 0.3s;
+}
+.productos-infantil img:hover {
+  transform: scale(1.05);
 }
 
 .producto-menu {
@@ -681,10 +702,10 @@ footer a:hover {
   footer {
     font-size: 14px;
   }
-  .producto-menu {
+  .producto-menu, .productos-infantil {
     width: calc(25% - 20px);
   }
-  .producto-menu .title-menu-img img {
+  .producto-menu .title-menu-img img, .productos-infantil .title-menu-img img {
     max-height: 28vh;
     max-width: 28vw;
     height: auto;
@@ -801,7 +822,7 @@ footer a:hover {
   }
 }
 @media screen and (max-width: 580px) {
-  .producto-menu {
+  .producto-menu, .productos-infantil {
     width: 40%;
   }
   .infantil {
