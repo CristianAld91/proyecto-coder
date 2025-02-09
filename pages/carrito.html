@@ -23,7 +23,9 @@
     <!--css de estilos-->
     <!--<link rel="stylesheet" href="../css/style.css">-->
     <link rel="stylesheet" href="../css/estilos.css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- SweetAlert -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 </head>
 <body>
     <header>
@@ -41,7 +43,7 @@
                         <a class="nav-link" href="../index.html">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./pages/menu.html">Menú</a>
+                        <a class="nav-link" href="menu.html">Menú</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="../pages/nosotros.html">Nosotros</a>
@@ -67,6 +69,7 @@
     </header>
     <main>
         <h1>Gracias por comprar</h1>
+        <div id="carrito"></div>
     </main>
     <footer>
         <div class="whatsapp-icono">
@@ -110,5 +113,7 @@
             <p>Developed by Cristian Alderete</p>
         </div>
     </footer>
+    <script src="../js/carrito.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
 </body>
 </html>

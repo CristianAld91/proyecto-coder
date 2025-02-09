@@ -233,26 +233,64 @@ h1 {
 }
 
 .producto-menu {
-  position: relative;
-  background: rgba(247, 243, 181, 0.368627451);
-  border-radius: 5px;
-  padding: 10px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  width: calc(25% - 20px);
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 10px;
+  flex-wrap: wrap; /* Para que las filas se envuelvan */
+  gap: 5px; /* Espacio entre los elementos */
 }
+
+.producto-menu > div {
+  flex: 20 1 20%; /* 25% para 4 elementos por fila */
+  box-sizing: border-box; /* Incluye el padding y border en el tamaño total del elemento */
+  padding: 20px;
+  display: flex;
+  flex-direction: column; /* Para permitir que la imagen y otros contenidos crezcan */
+  align-items: center;
+  position: relative; /* Para que las imágenes se ajusten dentro del contenedor */
+  overflow: hidden; /* Ocultar cualquier contenido que se salga del contenedor */
+  height: 500%; /* Ajusta esto al tamaño que desees */
+  margin: 8px;
+}
+
 .producto-menu img {
-  max-width: 50%;
-  height: auto;
+  width: 100%; /* Ajusta el ancho al 100% del contenedor */
+  object-fit: cover; /* Ajusta la imagen para cubrir el contenedor sin deformarse */
   display: block;
-  margin: 0 auto;
   transition: transform 0.3s;
 }
-.producto-menu img:hover {
-  transform: scale(1.05);
+
+/* Asegurar que todas las cards tengan la misma altura */
+.producto-menu > div {
+  height: 450px; /* Ajusta esto al tamaño que desees */
+}
+
+.producto-menu img {
+  max-height: 100%; /* Hace que las imágenes no excedan la altura del contenedor */
+}
+
+.producto-menu-bebidas {
+  display: flex;
+  flex-wrap: wrap; /* Para que las filas se envuelvan */
+  gap: 5px; /* Espacio entre los elementos */
+}
+
+.producto-menu-bebidas > div {
+  flex: 1 1 20%; /* 20% para 5 elementos por fila */
+  box-sizing: border-box; /* Incluye el padding y border en el tamaño total del elemento */
+  padding: 20px;
+  display: flex;
+  flex-direction: column; /* Para permitir que la imagen y otros contenidos crezcan */
+  align-items: center;
+  position: relative; /* Para que las imágenes se ajusten dentro del contenedor */
+  overflow: hidden; /* Ocultar cualquier contenido que se salga del contenedor */
+  height: 450px; /* Ajusta esto al tamaño que desees */
+  margin: 8px;
+}
+
+.producto-menu-bebidas img {
+  width: 40%; /* Ajusta el ancho al 100% del contenedor */
+  height: 40%; /* Ajusta la altura al 100% del contenedor */
+  display: block;
+  transition: transform 0.3s;
 }
 
 .icono-compra {
@@ -702,10 +740,10 @@ footer a:hover {
   footer {
     font-size: 14px;
   }
-  .producto-menu, .productos-infantil {
+  .productos-infantil {
     width: calc(25% - 20px);
   }
-  .producto-menu .title-menu-img img, .productos-infantil .title-menu-img img {
+  .productos-infantil .title-menu-img img {
     max-height: 28vh;
     max-width: 28vw;
     height: auto;

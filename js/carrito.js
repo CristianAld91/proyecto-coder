@@ -4,125 +4,133 @@ El local storage servira de base de datos para el guardado de producto y usuario
 Mas avanzado el proyecto pensaba utilizar JSON para desarrollar los articulos y reemplazar los actuales divs.
 
 */
+/*
+para esta entrega ya esta agreagdo el json y ademas otrsa funciones que le dan ms funcionalidad a la pagina agregando los productos al carrito*/
+let productosDestacados = [];
+let productosInfantil = [];
+let productosMenu = [];
+let bebidas = [];
+const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
 
-const productosLista = document.getElementById('productos-lista'); // crea la constante productosLista para luego mostrar en pantalla los datos del archivo JSON
 fetch('../js/productos.json') //archivo JSON
-    .then(response => response.json()) 
+    .then(response => response.json())
     .then(data => {
-        data.productosDestacados.forEach(producto => { // llama solo a los productos destacados
-            const productoDiv = document.createElement('div');
-            productoDiv.classList.add('producto');
-            const imageVistas = window.location.pathname.includes('menu.html') ? `../${producto.imagen}` : `./${producto.imagen}`;// cree una constante para que la imagen se vea en las dos paginas
-            const clickBotonMenu = window.location.pathname.includes('menu.html') ? `../${producto.id}` : `./${producto.id}`;
-            productoDiv.innerHTML = `
-                <div class="icono-compra" data-id="${clickBotonMenu}">
-                    <i class="fas fa-shopping-cart"></i>
-                </div>
-                <h2 class="title-menu">${producto.nombre}</h2>
-                <img src="${imageVistas}" alt="${producto.nombre}">
-                <p>${producto.descripcion}</p>
-                <div class="precio">
-                    <span>$${producto.precio.toLocaleString('es-CL')}</span>
-                </div>
-                <div class="calificacion">
-                    <span class="estrella">&#9733;</span>
-                    <span class="estrella">&#9733;</span>
-                    <span class="estrella">&#9733;</span>
-                    <span class="estrella">&#9733;</span>
-                    <span class="estrella">&#9733;</span>
-                </div>
-            `;
+        productosDestacados = data.productosDestacados;
+        productosInfantil = data.productosInfantil;
+        productosMenu = data.productosMenu;
+        bebidas = data.bebidas;
 
-            productosLista.appendChild(productoDiv);
-        });
-        
-        clickEnBoton();
+        cargarProductos();
     });
 
-const productoInfantil = document.getElementById('productos-infantil'); //repeti la funcion para que sirva con otro producto guardado en json
-fetch('../js/productos.json')
-.then(response => response.json())
-.then(data=> {
-    data.productosInfantil.forEach(producto =>{
-        const productoDivInfantil = document.createElement('div');
-        productoDivInfantil.classList.add('producto');
+function cargarProductos() {
+    mostrarProductos(productosDestacados, 'productos-lista');
+    mostrarProductos(productosInfantil, 'productos-infantil');
+    mostrarProductos(productosMenu, 'producto-menu');
+    mostrarProductos(bebidas, 'producto-menu-bebidas');
+    clickEnBoton();
 
-        productoDivInfantil.innerHTML = `
-                <div class="icono-compra" data-id="${producto.id}">
-                    <i class="fas fa-shopping-cart"></i>
-                </div>
-                <h2 class="title-menu">${producto.nombre}</h2>
-                <img src="${producto.imagen}" alt="${producto.nombre}">
-                <p>${producto.descripcion}</p>
-                <div class="precio">
-                    <span>$${producto.precio.toLocaleString('es-CL')}</span>
-                </div>
-                <div class="calificacion">
-                    <span class="estrella">&#9733;</span>
-                    <span class="estrella">&#9733;</span>
-                    <span class="estrella">&#9733;</span>
-                    <span class="estrella">&#9733;</span>
-                    <span class="estrella">&#9733;</span>
-                </div>
-            `;
-
-            productoInfantil.appendChild(productoDivInfantil);
-        });
-        clickEnBoton();
-    });
-    
-
-// Selecciona todos los productos del index
-function obtenerProductos() {
-    const productosDivs = document.querySelectorAll('.producto');
-
-    // Convierte los productos en array
-    return Array.from(productosDivs).map(producto => {
-        return {
-            nombre: producto.querySelector('.title-menu').textContent.trim(),
-            imagen: producto.querySelector('img').src,
-            descripcion: producto.querySelector('p').textContent.trim(),
-            precio: parseInt(producto.querySelector('.precio span').textContent.replace('$', '')).toFixed(3)//agrega decimales
-        };
-        
-    });
 }
 
+function mostrarProductos(productos, containerId) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
 
-// Los muestra en la consola
-let productosArray = obtenerProductos();
-console.log(productosArray);
+    container.innerHTML = ''; // Limpiar el contenedor antes de añadir nuevos productos
 
-let contadorClick = 0;//incializa en 0 para que cada vez que se haga click se guenden en array 
-let clickArray = [];//guarda los clicks
+    productos.forEach(producto => {
+        const productoDiv = document.createElement('div');
+        productoDiv.classList.add('producto');
+        const imageVistas = window.location.pathname.includes('menu.html') ? `../${producto.imagen}` : `./${producto.imagen}`;
+        productoDiv.innerHTML = `
+            <div class="icono-compra" data-id="${producto.id}">
+                <i class="fas fa-shopping-cart"></i>
+            </div>
+            <h2 class="title-menu">${producto.nombre}</h2>
+            <img src="${imageVistas}" alt="${producto.nombre}">
+            <p>${producto.descripcion}</p>
+            <div class="precio">
+                <span>$${producto.precio.toLocaleString('es-CL')}</span>
+            </div>
+            <div class="calificacion">
+                <span class="estrella">&#9733;</span>
+                <span class="estrella">&#9733;</span>
+                <span class="estrella">&#9733;</span>
+                <span class="estrella">&#9733;</span>
+                <span class="estrella">&#9733;</span>
+            </div>
+        `;
+        container.appendChild(productoDiv);
+    });
+    clickEnBoton();
+}
 
-// Función para agregar evento en el boton click y sweetalert
+// Añadir producto al carrito
+function agregarAlCarrito(id) {
+    const producto = productosDestacados.concat(productosInfantil, productosMenu, bebidas).find(p => p.id == id);
+    carrito.push(producto);
+    localStorage.setItem('carrito', JSON.stringify(carrito));
+    mostrarCarrito();
+}
+function eliminarDelCarrito(id) {
+    const index = carrito.findIndex(p => p.id == id);
+    if (index !== -1) {
+        carrito.splice(index, 1);
+        localStorage.setItem('carrito', JSON.stringify(carrito));
+        mostrarCarrito();
+    }
+}
+
+//funcion de alert revisar
 function clickEnBoton() {
     const comprar = document.querySelectorAll('.icono-compra');
-
-    // Evento click
     comprar.forEach(botonComprar => {
-
         botonComprar.addEventListener('click', function () {
-            // Incrementa el contador
-            contadorClick++;
-
-            clickArray.push(contadorClick);
-            // Muestra el contador en consola
-            console.log('Numero de clics: ', clickArray);
-            //mensaje de sweetalert
+            const productoId = this.getAttribute('data-id');
+            agregarAlCarrito(productoId);
+            
+            // Mensaje de SweetAlert
             Swal.fire({
                 title: '¡Éxito!',
                 text: 'Producto Agregado al carrito!',
                 icon: 'success',
                 confirmButtonText: 'Aceptar'
             });
+            
         });
     });
-
+    
 }
 
-// Llama a la funcion
+// Mostrar productos en carrito.html
+function mostrarCarrito() {
+    const carritoDiv = document.getElementById('carrito');
+    carritoDiv.innerHTML = '';
+
+    carrito.forEach(producto => {
+        const productoDiv = document.createElement('div');
+        productoDiv.classList.add('producto');
+        productoDiv.innerHTML = `
+            <h2>${producto.nombre}</h2>
+            <img src="${producto.imagen}" alt="${producto.nombre}">
+            <p>${producto.descripcion}</p>
+            <div class="precio">
+                <span>$${producto.precio.toLocaleString('es-CL')}</span>
+            </div>
+            <div class="button-menu">
+                <button class="boton-comprar">Comprar</button>
+                <button onclick="eliminarDelCarrito(${producto.id})" class="boton-eliminar">Eliminar</button>
+            </div>
+        `;
+        carritoDiv.appendChild(productoDiv);
+    });
+}
+
 document.addEventListener('DOMContentLoaded', function () {
-    clickEnBoton();
+    if (window.location.pathname.includes('carrito.html')) {
+        mostrarCarrito();
+        
+    } else {
+        cargarProductos(); 
+    }
 });
