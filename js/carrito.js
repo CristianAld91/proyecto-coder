@@ -62,7 +62,7 @@ function mostrarProductos(productos, containerId) {
         `;
         container.appendChild(productoDiv);
     });
-    clickEnBoton();
+
 }
 
 // Añadir producto al carrito
@@ -71,6 +71,7 @@ function agregarAlCarrito(id) {
     carrito.push(producto);
     localStorage.setItem('carrito', JSON.stringify(carrito));
     mostrarCarrito();
+    clickEnBoton(); 
 }
 function eliminarDelCarrito(id) {
     const index = carrito.findIndex(p => p.id == id);
@@ -80,6 +81,7 @@ function eliminarDelCarrito(id) {
         mostrarCarrito();
     }
 }
+
 
 //funcion de alert revisar
 function clickEnBoton() {
@@ -102,18 +104,31 @@ function clickEnBoton() {
     
 }
 
+// Función para vaciar el carrito
+function vaciarCarrito() {
+    // Vaciar el arreglo del carrito
+    carrito.length = 0; // Esto vacía el arreglo del carrito
+    localStorage.setItem('carrito', JSON.stringify(carrito)); // Actualiza el localStorage
+
+    // Actualizar la vista del carrito
+    mostrarCarrito();
+}
+
+
+
 // Mostrar productos en carrito.html
 function mostrarCarrito() {
     const carritoDiv = document.getElementById('carrito');
+    if (!carritoDiv) return;
     carritoDiv.innerHTML = '';
 
     carrito.forEach(producto => {
         const productoDiv = document.createElement('div');
         productoDiv.classList.add('producto');
+        const imageVistas = window.location.pathname.includes('index.html') ? `./${producto.imagen}` : `../${producto.imagen}`;
         productoDiv.innerHTML = `
             <h2>${producto.nombre}</h2>
-            <img src="${producto.imagen}" alt="${producto.nombre}">
-            <p>${producto.descripcion}</p>
+            <img src="${imageVistas}" alt="${producto.nombre}">
             <div class="precio">
                 <span>$${producto.precio.toLocaleString('es-CL')}</span>
             </div>
@@ -126,11 +141,16 @@ function mostrarCarrito() {
     });
 }
 
+//vaciar carrito
+document.getElementById('vaciar-carrito').addEventListener('click', vaciarCarrito);
+//mostrar carrito
 document.addEventListener('DOMContentLoaded', function () {
     if (window.location.pathname.includes('carrito.html')) {
         mostrarCarrito();
+        clickEnBoton();
         
     } else {
         cargarProductos(); 
+        clickEnBoton();
     }
 });

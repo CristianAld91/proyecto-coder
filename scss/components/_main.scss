@@ -163,9 +163,10 @@
 }
 
 .producto-menu img {
-    width: 100%; /* Ajusta el ancho al 100% del contenedor */
-    object-fit: cover; /* Ajusta la imagen para cubrir el contenedor sin deformarse */
+    max-width: 50%;
+    height: auto;
     display: block;
+    margin: 0 auto;
     transition: transform 0.3s;
 }
 
@@ -198,13 +199,34 @@
 }
 
 .producto-menu-bebidas img {
-    width: 40%; /* Ajusta el ancho al 100% del contenedor */
-    height: 40%; /* Ajusta la altura al 100% del contenedor */
+    max-width: 50%;
+    height: auto;
     display: block;
+    margin: 0 auto;
     transition: transform 0.3s;
 }
+//contenedor de carrito
+.contenedor-carrito {
+    display: flex; 
+    flex-wrap: wrap;
+    justify-content:center; 
+    gap: 10px; 
+    margin: 20px; 
+    margin-bottom: 10px;
 
+    .producto {
+        
+        width: 380px; 
+        text-align: center; 
 
+        img {
+            width: 100%; 
+            height: auto; 
+            max-height: 150px; 
+            object-fit: cover; 
+        }
+    }
+}
 
 // Iconos de compra
 .icono-compra {
