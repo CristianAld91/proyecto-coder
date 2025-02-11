@@ -4,8 +4,8 @@ El local storage servira de base de datos para el guardado de producto y usuario
 Mas avanzado el proyecto pensaba utilizar JSON para desarrollar los articulos y reemplazar los actuales divs.
 
 */
-/*
-para esta entrega ya esta agregado el json y ademas otras funciones que le dan mas funcionalidad a la pagina agregando los productos al carrito */
+
+//para esta entrega ya esta agregado el json y ademas otras funciones que le dan mas funcionalidad a la pagina agregando los productos al carrito...
 let productosDestacados = [];
 let productosInfantil = [];
 let productosMenu = [];
@@ -30,13 +30,13 @@ function cargarProductos() {
     mostrarProductos(bebidas, 'producto-menu-bebidas');
     clickEnBoton();
 
-}// esta funcion es encargada de cargar desde json los productos, primero hice varias funciones de mostrar producto y busque esta forma que creo quedo el codigo mas legible
+}// esta funcion se encargada de cargar desde json los productos, primero hice varias funciones de mostrar producto y busque esta forma que creo quedo el codigo mas legible
 
 function mostrarProductos(productos, containerId) {
     const container = document.getElementById(containerId);
     if (!container) return;
 
-    container.innerHTML = ''; // Limpiar el contenedor antes de añadir nuevos productos
+    container.innerHTML = ''; // Limpia el contenedor antes de añadir nuevos productos
 
     productos.forEach(producto => {
         const productoDiv = document.createElement('div');
@@ -63,13 +63,13 @@ function mostrarProductos(productos, containerId) {
         container.appendChild(productoDiv);
     });
 
-}// en esta funcion s cargan los productos en pantalla
+}// en esta funcion se cargan los productos en pantalla
 
 // Añadir producto al carrito
 function agregarAlCarrito(id) {
     const producto = productosDestacados.concat(productosInfantil, productosMenu, bebidas).find(p => p.id == id);
     carrito.push(producto);
-    localStorage.setItem('carrito', JSON.stringify(carrito));// esta funcion agrega al carrito y al final llama ademas a la funcion click para que se vea en pantalla el alert
+    localStorage.setItem('carrito', JSON.stringify(carrito));// esta funcion agrega al carrito y al final llama a la funcion mostrarcarrito y ademas a la funcion click para que se vea en pantalla el alert
     mostrarCarrito();
     clickEnBoton(); 
 }
@@ -156,8 +156,7 @@ function vaciarCarrito() {
     });
 }
 
-
-
+//muestra en el carrito las card y ademas con un acumulador el total de la compra hasta el momento(agregue acumulador para la suma de precio)
 function mostrarCarrito() {
     const carritoDiv = document.getElementById('carrito'); //div de card
     const totalDiv = document.getElementById('mostrar-resultado'); //div de resultado
@@ -191,7 +190,7 @@ function mostrarCarrito() {
         total += producto.precio;
     });
 
-    // muestra la suma 
+    // muestra la suma trayendo solo precio.producto
     totalDiv.innerHTML = `Total de la compra: $${total.toLocaleString('es-CL')}`;
 }
 
@@ -201,7 +200,7 @@ document.getElementById('vaciar-carrito').addEventListener('click', vaciarCarrit
 //mostrar carrito
 document.addEventListener('DOMContentLoaded', function () {
     if (window.location.pathname.includes('carrito.html')) {
-        mostrarCarrito();// este if/else es para corregir un error de carga que teniua al momento de mostar en pantalla
+        mostrarCarrito();// este if/else es para corregir un error de carga que tenia al momento de mostar en pantalla
         clickEnBoton();
         
     } else {
