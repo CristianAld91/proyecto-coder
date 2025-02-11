@@ -306,12 +306,85 @@ h1 {
 .contenedor-carrito .producto {
   width: 380px;
   text-align: center;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 450px;
 }
 .contenedor-carrito .producto img {
   width: 100%;
   height: auto;
   max-height: 150px;
   object-fit: cover;
+}
+
+.button-compras {
+  display: flex; /* Alinea los botones en línea */
+  justify-content: center;
+}
+.button-compras .boton-comprar {
+  border: none;
+  background: none;
+  cursor: pointer;
+  margin-right: 20px; /* Espacio entre los botones */
+  padding: 20px;
+}
+.button-compras .boton-comprar i {
+  font-size: 30px;
+  color: rgb(0, 0, 0);
+}
+.button-compras .boton-comprar i:hover {
+  color: #5fdb17;
+  transform: translateY(5px);
+}
+.button-compras .boton-eliminar {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+.button-compras .boton-eliminar i {
+  font-size: 30px;
+  color: rgb(0, 0, 0);
+}
+.button-compras .boton-eliminar i:hover {
+  color: #ff0000;
+  transform: translatey(-5px);
+}
+
+.button-carrito {
+  display: flex; /* Alinea el contenido */
+  justify-content: start; /* Centra horizontalmente */
+  margin-top: 10px; /* Espacio superior */
+  padding: 20px;
+  font-size: large;
+}
+.button-carrito #vaciar-carrito {
+  background-color: red; /* Color de fondo */
+  color: white; /* Color del texto */
+  border: none; /* Sin borde */
+  padding: 10px 20px; /* Espaciado interno */
+  border-radius: 5px; /* Bordes redondeados */
+  cursor: pointer; /* Cambia el cursor al pasar el ratón */
+}
+.button-carrito #vaciar-carrito:hover {
+  background-color: darkred; /* Color al pasar el ratón */
+}
+.button-carrito #vaciar-carrito:focus {
+  outline: none; /* Elimina el contorno al hacer clic */
+}
+
+.suma {
+  color: rgb(114, 113, 113);
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 2.2em;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  border-top: 3px solid rgb(230, 228, 228);
+  border-bottom: 3px solid rgb(235, 231, 231);
 }
 
 .icono-compra {

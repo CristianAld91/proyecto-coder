@@ -218,6 +218,11 @@
         
         width: 380px; 
         text-align: center; 
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 450px;
 
         img {
             width: 100%; 
@@ -226,6 +231,81 @@
             object-fit: cover; 
         }
     }
+}
+.button-compras {
+    display: flex; /* Alinea los botones en línea */
+   justify-content: center;
+
+    .boton-comprar {
+        border: none;
+        background: none;
+        cursor: pointer;
+        margin-right: 20px; /* Espacio entre los botones */
+        padding: 20px;
+
+        i {
+            font-size: 30px;
+            color: rgb(0, 0, 0);
+            &:hover {
+                color: #5fdb17;
+                transform: translateY(5px);
+            }
+        }
+    }
+
+    .boton-eliminar {
+        border: none;
+        background: none;
+        cursor: pointer;
+
+        i {
+            font-size: 30px;
+            color: rgb(0, 0, 0);
+            &:hover {
+                color: #ff0000;
+                transform: translatey(-5px);
+            }
+        }
+        
+    }
+}
+.button-carrito {
+    display: flex; /* Alinea el contenido */
+    justify-content: start; /* Centra horizontalmente */
+    margin-top: 10px; /* Espacio superior */
+    padding: 20px;
+    font-size: large;
+
+    #vaciar-carrito {
+        background-color: red; /* Color de fondo */
+        color: white; /* Color del texto */
+        border: none; /* Sin borde */
+        padding: 10px 20px; /* Espaciado interno */
+        border-radius: 5px; /* Bordes redondeados */
+        cursor: pointer; /* Cambia el cursor al pasar el ratón */
+
+        &:hover {
+            background-color: darkred; /* Color al pasar el ratón */
+        }
+
+        &:focus {
+            outline: none; /* Elimina el contorno al hacer clic */
+        }
+    }
+}
+
+
+.suma {
+    color: rgb(114, 113, 113); 
+    padding: 10px 15px; 
+    border-radius: 5px; 
+    font-size: 2.2em; 
+    font-weight: bold; 
+    text-align: center;
+    margin-top: 20px; 
+    margin-bottom: 10px;
+    border-top: 3px solid rgb(230, 228, 228); 
+    border-bottom: 3px solid rgb(235, 231, 231); 
 }
 
 // Iconos de compra

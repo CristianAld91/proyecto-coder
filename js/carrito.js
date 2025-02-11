@@ -5,7 +5,7 @@ Mas avanzado el proyecto pensaba utilizar JSON para desarrollar los articulos y 
 
 */
 /*
-para esta entrega ya esta agreagdo el json y ademas otrsa funciones que le dan ms funcionalidad a la pagina agregando los productos al carrito*/
+para esta entrega ya esta agregado el json y ademas otras funciones que le dan mas funcionalidad a la pagina agregando los productos al carrito */
 let productosDestacados = [];
 let productosInfantil = [];
 let productosMenu = [];
@@ -30,7 +30,7 @@ function cargarProductos() {
     mostrarProductos(bebidas, 'producto-menu-bebidas');
     clickEnBoton();
 
-}
+}// esta funcion es encargada de cargar desde json los productos, primero hice varias funciones de mostrar producto y busque esta forma que creo quedo el codigo mas legible
 
 function mostrarProductos(productos, containerId) {
     const container = document.getElementById(containerId);
@@ -41,7 +41,7 @@ function mostrarProductos(productos, containerId) {
     productos.forEach(producto => {
         const productoDiv = document.createElement('div');
         productoDiv.classList.add('producto');
-        const imageVistas = window.location.pathname.includes('menu.html') ? `../${producto.imagen}` : `./${producto.imagen}`;
+        const imageVistas = window.location.pathname.includes('menu.html') ? `../${producto.imagen}` : `./${producto.imagen}`;// operador ternario(error al cargar las imagenes, forma resumida)
         productoDiv.innerHTML = `
             <div class="icono-compra" data-id="${producto.id}">
                 <i class="fas fa-shopping-cart"></i>
@@ -63,27 +63,48 @@ function mostrarProductos(productos, containerId) {
         container.appendChild(productoDiv);
     });
 
-}
+}// en esta funcion s cargan los productos en pantalla
 
 // Añadir producto al carrito
 function agregarAlCarrito(id) {
     const producto = productosDestacados.concat(productosInfantil, productosMenu, bebidas).find(p => p.id == id);
     carrito.push(producto);
-    localStorage.setItem('carrito', JSON.stringify(carrito));
+    localStorage.setItem('carrito', JSON.stringify(carrito));// esta funcion agrega al carrito y al final llama ademas a la funcion click para que se vea en pantalla el alert
     mostrarCarrito();
     clickEnBoton(); 
 }
-function eliminarDelCarrito(id) {
-    const index = carrito.findIndex(p => p.id == id);
-    if (index !== -1) {
-        carrito.splice(index, 1);
-        localStorage.setItem('carrito', JSON.stringify(carrito));
-        mostrarCarrito();
-    }
+
+function eliminarDelCarrito(id) { //agregue en esta funcion el uso de sweet alert para que al precionar el boton aparezca el msj de si desea borrar y confirmar
+    Swal.fire({
+        title: '¿Estás seguro?',
+        text: "¡Esto eliminará el artículo del carrito!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sí, eliminar',
+        cancelButtonText: 'Cancelar'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            const index = carrito.findIndex(p => p.id == id);
+            if (index !== -1) {
+                carrito.splice(index, 1);
+                localStorage.setItem('carrito', JSON.stringify(carrito)); // Actualiza el localStorage
+                mostrarCarrito(); // Actualiza la vista del carrito
+
+                Swal.fire(
+                    '¡Eliminado!',
+                    'El artículo ha sido eliminado del carrito.',
+                    'success'
+                );
+            }
+        }
+    });
 }
 
 
-//funcion de alert revisar
+
+//funcion de alert revisar(corregida)
 function clickEnBoton() {
     const comprar = document.querySelectorAll('.icono-compra');
     comprar.forEach(botonComprar => {
@@ -104,23 +125,45 @@ function clickEnBoton() {
     
 }
 
-// Función para vaciar el carrito
+// Funcion para vaciar el carrito
 function vaciarCarrito() {
-    // Vaciar el arreglo del carrito
-    carrito.length = 0; // Esto vacía el arreglo del carrito
-    localStorage.setItem('carrito', JSON.stringify(carrito)); // Actualiza el localStorage
+    // Usar SweetAlert para confirmar la acción
+    Swal.fire({
+        title: '¿Estás seguro?',
+        text: "¡Esto eliminará todos los artículos del carrito!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sí, vaciar carrito',
+        cancelButtonText: 'Cancelar'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            // Si el usuario confirma se borra el carrito
+            carrito.length = 0; 
+            localStorage.setItem('carrito', JSON.stringify(carrito)); // Actualiza el localStorage
+            
+            // Actualizar la vista del carrito
+            mostrarCarrito();
 
-    // Actualizar la vista del carrito
-    mostrarCarrito();
+           
+            Swal.fire(
+                '¡Vacío!',
+                'Tu carrito ha sido vaciado.',
+                'success'
+            );
+        }
+    });
 }
 
 
 
-// Mostrar productos en carrito.html
 function mostrarCarrito() {
-    const carritoDiv = document.getElementById('carrito');
-    if (!carritoDiv) return;
-    carritoDiv.innerHTML = '';
+    const carritoDiv = document.getElementById('carrito'); //div de card
+    const totalDiv = document.getElementById('mostrar-resultado'); //div de resultado
+    if (!carritoDiv || !totalDiv) return;
+    carritoDiv.innerHTML = ''; // Limpiar el carrito
+    let total = 0; //total inicia en 0
 
     carrito.forEach(producto => {
         const productoDiv = document.createElement('div');
@@ -129,24 +172,36 @@ function mostrarCarrito() {
         productoDiv.innerHTML = `
             <h2>${producto.nombre}</h2>
             <img src="${imageVistas}" alt="${producto.nombre}">
+            <p>${producto.descripcion}</p>
             <div class="precio">
                 <span>$${producto.precio.toLocaleString('es-CL')}</span>
             </div>
-            <div class="button-menu">
-                <button class="boton-comprar">Comprar</button>
-                <button onclick="eliminarDelCarrito(${producto.id})" class="boton-eliminar">Eliminar</button>
+            <div class="button-compras">
+                <button class="boton-comprar">
+                    <i class="fas fa-shopping-cart"></i>
+                </button>
+                <button onclick="eliminarDelCarrito(${producto.id})" class="boton-eliminar">
+                    <i class="fas fa-trash-alt"></i>
+                </button>
             </div>
         `;
         carritoDiv.appendChild(productoDiv);
+
+        // acumulador
+        total += producto.precio;
     });
+
+    // muestra la suma 
+    totalDiv.innerHTML = `Total de la compra: $${total.toLocaleString('es-CL')}`;
 }
+
 
 //vaciar carrito
 document.getElementById('vaciar-carrito').addEventListener('click', vaciarCarrito);
 //mostrar carrito
 document.addEventListener('DOMContentLoaded', function () {
     if (window.location.pathname.includes('carrito.html')) {
-        mostrarCarrito();
+        mostrarCarrito();// este if/else es para corregir un error de carga que teniua al momento de mostar en pantalla
         clickEnBoton();
         
     } else {
