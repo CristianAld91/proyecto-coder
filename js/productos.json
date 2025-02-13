@@ -3,28 +3,28 @@
         {
             "id": 1,
             "nombre": "Papas Fritas",
-            "imagen": "../img/papas-fritas.png",
+            "imagen": "./img/papas-fritas.png",
             "descripcion": "Las mejores papas, la cocción justa las encuentras acá. Además tienen nuestra salsa especial y mucho quesooo!",
             "precio": 6500
         },
         {
             "id": 2,
             "nombre": "Pollo Frito",
-            "imagen": "../img/pollo-frito.png",
+            "imagen": "./img/pollo-frito.png",
             "descripcion": "Fuuaa mira lo que es eso, una locura",
             "precio": 5000
         },
         {
             "id": 3,
             "nombre": "Hamburguesa Mega",
-            "imagen": "../img/hamburguesa-grande.png",
+            "imagen": "./img/hamburguesa-grande.png",
             "descripcion": "Esta hamburguesa es todo lo que está bien.",
             "precio": 9500
         },
         {
             "id": 4,
             "nombre": "Especial de la casa",
-            "imagen": "../img/de-la-casa.png",
+            "imagen": "./img/de-la-casa.png",
             "descripcion": "Mucha, mucha carne... y un bacon, mucho bacon",
             "precio": 8500
         }
@@ -33,7 +33,7 @@
         {
             "id": 5,
             "nombre": "Papas y nuggets",
-            "imagen": "../img/menu-infantil.png",
+            "imagen": "./img/menu-infantil.png",
             "descripcion": "Crujientes y jugosos, nuestros nuggets de pollo son perfectos para los niños. Servidos con una deliciosa ketchup.",
             "precio": 4500
         }
@@ -42,56 +42,56 @@
         {
             "id": 6,
             "nombre": "Burger doble",
-            "imagen": "../img/burger-doble.png",
+            "imagen": "./img/burger-doble.png",
             "descripcion": "Doble carne, doble queso!!!!mmmm....",
             "precio": 7500
         },
         {
             "id": 7,
             "nombre": "burger cuadruple",
-            "imagen": "../img/burger-cuadruple.png",
+            "imagen": "./img/burger-cuadruple.png",
             "descripcion": "Una locura...",
             "precio": 12000
         },
         {
             "id": 8,
             "nombre": "Mega napo",
-            "imagen": "../img/mega-napo.png",
+            "imagen": "./img/mega-napo.png",
             "descripcion": "Carne, queso y al estilo napolitano",
             "precio": 8000
         },
         {
             "id": 9,
             "nombre": "Ensalada de atún",
-            "imagen": "../img/ensalada-atun.png",
+            "imagen": "./img/ensalada-atun.png",
             "descripcion": "Si estás a dieta, esta es una buena opción",
             "precio": 4000
         },
         {
             "id": 10,
             "nombre": "Ensalada caesar",
-            "imagen": "../img/caesar.png",
+            "imagen": "./img/caesar.png",
             "descripcion": "Ensalada más pollo",
             "precio": 4500
         },
         {
             "id": 11,
             "nombre": "Burger bacon",
-            "imagen": "../img/burger-bacon.png",
+            "imagen": "./img/burger-bacon.png",
             "descripcion": "El cheddar y el bacon... la combinación perfecta",
             "precio": 8000
         },
         {
             "id": 12,
             "nombre": "Bastones de Muzzarella",
-            "imagen": "../img/Muzzarellitas.png",
+            "imagen": "./img/Muzzarellitas.png",
             "descripcion": "Las mejores papas, la cocción justa las encuentras acá!",
             "precio": 5500
         },
         {
             "id": 13,
             "nombre": "Burger de pollo",
-            "imagen": "../img/burger-pollo.png",
+            "imagen": "./img/burger-pollo.png",
             "descripcion": "El mejor pollo grillado acompañado de cebolla, tomate...",
             "precio": 5800
         }
@@ -100,7 +100,7 @@
         {
             "id": 14,
             "nombre": "Cerveza negra",
-            "imagen": "../img/cerveza-negra.png",
+            "imagen": "./img/cerveza-negra.png",
             "descripcion": "Con su profundo color oscuro y sabor único",
             "precio": 4000,
             "calificacion": 5
@@ -108,7 +108,7 @@
         {
             "id": 15,
             "nombre": "Cerveza rubia",
-            "imagen": "../img/cerveza-rubia.png",
+            "imagen": "./img/cerveza-rubia.png",
             "descripcion": "Con su color dorado y un sabor suave",
             "precio": 4200,
             "calificacion": 5
@@ -116,7 +116,7 @@
         {
             "id": 16,
             "nombre": "Cerveza roja",
-            "imagen": "../img/cerveza-roja.png",
+            "imagen": "./img/cerveza-roja.png",
             "descripcion": "La cerveza roja destaca por su color ámbar intenso",
             "precio": 4100,
             "calificacion": 5
@@ -124,7 +124,7 @@
         {
             "id": 17,
             "nombre": "Daikiri",
-            "imagen": "../img/daikiri.png",
+            "imagen": "./img/daikiri.png",
             "descripcion": "Una mezcla refrescante de ron, jugo de lima y azúcar",
             "precio": 4900,
             "calificacion": 3
@@ -132,7 +132,7 @@
         {
             "id": 18,
             "nombre": "Mai tai",
-            "imagen": "../img/mai-tai.png",
+            "imagen": "./img/mai-tai.png",
             "descripcion": "Cóctel tropical es una explosión de sabores caribeños",
             "precio": 6000,
             "calificacion": 4
@@ -140,7 +140,7 @@
         {
             "id": 19,
             "nombre": "Fernet",
-            "imagen": "../img/fernet.png",
+            "imagen": "./img/fernet.png",
             "descripcion": "Con su intenso sabor amargo y herbal",
             "precio": 5000,
             "calificacion": 4
@@ -148,7 +148,7 @@
         {
             "id": 20,
             "nombre": "Jugo naranja",
-            "imagen": "../img/jugo-naranja.png",
+            "imagen": "./img/jugo-naranja.png",
             "descripcion": "Refrescante y lleno de vitamina C",
             "precio": 3300,
             "calificacion": 3
@@ -156,7 +156,7 @@
         {
             "id": 21,
             "nombre": "Licuado de frutilla",
-            "imagen": "../img/licuado-frutilla.png",
+            "imagen": "./img/licuado-frutilla.png",
             "descripcion": "Disfruta de frutillas frescas con un poco de leche",
             "precio": 3900,
             "calificacion": 5
