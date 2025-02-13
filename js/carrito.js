@@ -11,8 +11,16 @@ let productosInfantil = [];
 let productosMenu = [];
 let bebidas = [];
 const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+// Determina la ruta del archivo JSON según la página actual
+let jsonPath = './js/productos.json'; // Ruta por defecto
 
-fetch('../js/productos.json') //archivo JSON
+if (window.location.pathname.includes('menu.html')) {
+    jsonPath = '../js/productos.json'; // Si estás en menu.html, usa esta ruta
+} else if (window.location.pathname.includes('index.html')) {
+    jsonPath = './js/productos.json'; // Si estás en index.html, usa esta ruta
+}
+
+fetch(jsonPath) //archivo JSON
     .then(response => response.json())
     .then(data => {
         productosDestacados = data.productosDestacados;
