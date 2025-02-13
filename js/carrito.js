@@ -167,7 +167,7 @@ function mostrarCarrito() {
     carrito.forEach(producto => {
         const productoDiv = document.createElement('div');
         productoDiv.classList.add('producto');
-        const imageVistas = window.location.pathname.includes('index.html') ? `./${producto.imagen}` : `../${producto.imagen}`;
+        const imageVistas = window.location.pathname.includes('menu.html') ? `../${producto.imagen}` : `./${producto.imagen}`;
         productoDiv.innerHTML = `
             <h2>${producto.nombre}</h2>
             <img src="${imageVistas}" alt="${producto.nombre}">
