@@ -11,13 +11,13 @@ let productosInfantil = [];
 let productosMenu = [];
 let bebidas = [];
 const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-// Determina la ruta del archivo JSON según la página actual
-let jsonPath = './js/productos.json'; // Ruta por defecto
+// Determina la ruta del archivo JSON segun la pagina actual
+let jsonPath = './js/productos.json'; // por defecto
 
 if (window.location.pathname.includes('menu.html')) {
-    jsonPath = '../js/productos.json'; // Si estás en menu.html, usa esta ruta
+    jsonPath = '../js/productos.json'; // Si estas en menu.html, usa esta ruta
 } else if (window.location.pathname.includes('index.html')) {
-    jsonPath = './js/productos.json'; // Si estás en index.html, usa esta ruta
+    jsonPath = './js/productos.json'; // Si estas en index.html, usa esta ruta
 }
 
 fetch(jsonPath) //archivo JSON
@@ -49,13 +49,13 @@ function mostrarProductos(productos, containerId) {
     productos.forEach(producto => {
         const productoDiv = document.createElement('div');
         productoDiv.classList.add('producto');
-        const imageVistas = window.location.pathname.includes('menu.html') ? `./${producto.imagen}` : `../${producto.imagen}`;// operador ternario(error al cargar las imagenes, forma resumida)
+        //const imageVistas = window.location.pathname.includes('menu.html') ? `./${producto.imagen}` : `../${producto.imagen}`;// operador ternario(error al cargar las imagenes, forma resumida)
         productoDiv.innerHTML = `
             <div class="icono-compra" data-id="${producto.id}">
                 <i class="fas fa-shopping-cart"></i>
             </div>
             <h2 class="title-menu">${producto.nombre}</h2>
-            <img src="${imageVistas}" alt="${producto.nombre}">
+            <img src="${producto.imagen}" alt="${producto.nombre}">
             <p>${producto.descripcion}</p>
             <div class="precio">
                 <span>$${producto.precio.toLocaleString('es-CL')}</span>
