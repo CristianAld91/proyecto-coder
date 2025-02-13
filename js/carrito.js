@@ -41,7 +41,7 @@ function mostrarProductos(productos, containerId) {
     productos.forEach(producto => {
         const productoDiv = document.createElement('div');
         productoDiv.classList.add('producto');
-        const imageVistas = window.location.pathname.includes('index.html') ? `../${producto.imagen}` : `./${producto.imagen}`;// operador ternario(error al cargar las imagenes, forma resumida)
+        const imageVistas = window.location.pathname.includes('menu.html') ? `../${producto.imagen}` : `./${producto.imagen}`;// operador ternario(error al cargar las imagenes, forma resumida)
         productoDiv.innerHTML = `
             <div class="icono-compra" data-id="${producto.id}">
                 <i class="fas fa-shopping-cart"></i>
