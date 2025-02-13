@@ -12,7 +12,7 @@ let productosMenu = [];
 let bebidas = [];
 const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
 
-fetch('./js/productos.json') //archivo JSON
+fetch('../js/productos.json') //archivo JSON
     .then(response => response.json())
     .then(data => {
         productosDestacados = data.productosDestacados;
