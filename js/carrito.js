@@ -195,14 +195,15 @@ function mostrarCarrito() {
 }
 
 
-//vaciar carrito
-document.getElementById('vaciar-carrito').addEventListener('click', vaciarCarrito);
-//mostrar carrito
 document.addEventListener('DOMContentLoaded', function () {
+    const vaciarCarritoBtn = document.getElementById('vaciar-carrito');
+    if (vaciarCarritoBtn) {
+        vaciarCarritoBtn.addEventListener('click', vaciarCarrito);
+    }
+    
     if (window.location.pathname.includes('carrito.html')) {
-        mostrarCarrito();// este if/else es para corregir un error de carga que tenia al momento de mostar en pantalla
+        mostrarCarrito();
         clickEnBoton();
-        
     } else {
         cargarProductos(); 
         clickEnBoton();
