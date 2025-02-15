@@ -3,28 +3,28 @@
         {
             "id": 1,
             "nombre": "Papas Fritas",
-            "imagen": "../img/papas-fritas.png",
+            "imagen": "https://i.ibb.co/RT2DvR1J/papas-fritas.png",
             "descripcion": "Las mejores papas, la cocción justa las encuentras acá. Además tienen nuestra salsa especial y mucho quesooo!",
             "precio": 6500
         },
         {
             "id": 2,
             "nombre": "Pollo Frito",
-            "imagen": "../img/pollo-frito.png",
+            "imagen": "https://i.ibb.co/rR72tNLf/pollo-frito.png",
             "descripcion": "Fuuaa mira lo que es eso, una locura",
             "precio": 5000
         },
         {
             "id": 3,
             "nombre": "Hamburguesa Mega",
-            "imagen": "../img/hamburguesa-grande.png",
+            "imagen": "https://i.ibb.co/gFRBWD2j/hamburguesa-grande.png",
             "descripcion": "Esta hamburguesa es todo lo que está bien.",
             "precio": 9500
         },
         {
             "id": 4,
             "nombre": "Especial de la casa",
-            "imagen": "../img/de-la-casa.png",
+            "imagen": "https://i.ibb.co/rKbPvBzq/de-la-casa.png",
             "descripcion": "Mucha, mucha carne... y un bacon, mucho bacon",
             "precio": 8500
         }
@@ -33,7 +33,7 @@
         {
             "id": 5,
             "nombre": "Papas y nuggets",
-            "imagen": "../img/menu-infantil.png",
+            "imagen": "https://i.ibb.co/YFxGyY6w/menu-infantil.png",
             "descripcion": "Crujientes y jugosos, nuestros nuggets de pollo son perfectos para los niños. Servidos con una deliciosa ketchup.",
             "precio": 4500
         }
