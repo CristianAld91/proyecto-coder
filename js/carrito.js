@@ -45,17 +45,19 @@ function mostrarProductos(productos, containerId) {
     if (!container) return;
 
     container.innerHTML = ''; // Limpia el contenedor antes de añadir nuevos productos
-
+    
     productos.forEach(producto => {
         const productoDiv = document.createElement('div');
         productoDiv.classList.add('producto');
-        //const imageVistas = window.location.pathname.includes('menu.html') ? `./${producto.imagen}` : `../${producto.imagen}`;// operador ternario(error al cargar las imagenes, forma resumida)
+         // Determina la ruta de la imagen según la página actual
+         const basePath = window.location.pathname.includes('menu.html') ? '../' : './';
+         const imagePath = `${basePath}${producto.imagen}`;
         productoDiv.innerHTML = `
             <div class="icono-compra" data-id="${producto.id}">
                 <i class="fas fa-shopping-cart"></i>
             </div>
             <h2 class="title-menu">${producto.nombre}</h2>
-            <img src="${producto.imagen}" alt="${producto.nombre}">
+            <img src="${imagePath}" alt="${producto.nombre}">
             <p>${producto.descripcion}</p>
             <div class="precio">
                 <span>$${producto.precio.toLocaleString('es-CL')}</span>
