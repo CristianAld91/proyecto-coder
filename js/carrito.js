@@ -49,9 +49,10 @@ function mostrarProductos(productos, containerId) {
     productos.forEach(producto => {
         const productoDiv = document.createElement('div');
         productoDiv.classList.add('producto');
-         // Determina la ruta de la imagen según la página actual
-         const basePath = window.location.pathname.includes('index.html') ? '../' : './';
-         const imagePath = `${basePath}${producto.imagen}`;
+
+        const basePath = window.location.pathname.includes('pages/menu.html') ? '../' : './';
+        const imagePath = `${basePath}${producto.imagen}`;
+
         productoDiv.innerHTML = `
             <div class="icono-compra" data-id="${producto.id}">
                 <i class="fas fa-shopping-cart"></i>
