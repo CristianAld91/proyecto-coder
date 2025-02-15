@@ -50,7 +50,7 @@ function mostrarProductos(productos, containerId) {
         const productoDiv = document.createElement('div');
         productoDiv.classList.add('producto');
 
-        const basePath = window.location.pathname.includes('pages/menu.html') ? '../' : './';
+        const basePath = window.location.pathname.includes('index.html') ? './' : '../';
         const imagePath = `${basePath}${producto.imagen}`;
 
         productoDiv.innerHTML = `
