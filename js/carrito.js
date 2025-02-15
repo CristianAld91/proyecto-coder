@@ -50,7 +50,7 @@ function mostrarProductos(productos, containerId) {
         const productoDiv = document.createElement('div');
         productoDiv.classList.add('producto');
          // Determina la ruta de la imagen según la página actual
-         const basePath = window.location.pathname.includes('menu.html') ? '../' : './';
+         const basePath = window.location.pathname.includes('index.html') ? '../' : './';
          const imagePath = `${basePath}${producto.imagen}`;
         productoDiv.innerHTML = `
             <div class="icono-compra" data-id="${producto.id}">
