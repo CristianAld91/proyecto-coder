@@ -50,14 +50,12 @@ function mostrarProductos(productos, containerId) {
         const productoDiv = document.createElement('div');
         productoDiv.classList.add('producto');
         //const imageVistas = window.location.pathname.includes('menu.html') ? `./${producto.imagen}` : `../${producto.imagen}`;// operador ternario(error al cargar las imagenes, forma resumida)
-        const imagenCarga = producto.imagen;
-        
         productoDiv.innerHTML = `
             <div class="icono-compra" data-id="${producto.id}">
                 <i class="fas fa-shopping-cart"></i>
             </div>
             <h2 class="title-menu">${producto.nombre}</h2>
-            <img src="${imagenCarga}" alt="${producto.nombre}" onerror="this.onerror=null; this.src='img/default.png';">
+            <img src="${producto.imagen}" alt="${producto.nombre}">
             <p>${producto.descripcion}</p>
             <div class="precio">
                 <span>$${producto.precio.toLocaleString('es-CL')}</span>
@@ -150,13 +148,13 @@ function vaciarCarrito() {
     }).then((result) => {
         if (result.isConfirmed) {
             // Si el usuario confirma se borra el carrito
-            carrito.length = 0;
+            carrito.length = 0; 
             localStorage.setItem('carrito', JSON.stringify(carrito)); // Actualiza el localStorage
-
+            
             // Actualizar la vista del carrito
             mostrarCarrito();
 
-
+           
             Swal.fire(
                 '¡Vacío!',
                 'Tu carrito ha sido vaciado.',
