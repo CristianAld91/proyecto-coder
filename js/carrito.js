@@ -50,7 +50,7 @@ function mostrarProductos(productos, containerId) {
         const productoDiv = document.createElement('div');
         productoDiv.classList.add('producto');
         //const imageVistas = window.location.pathname.includes('menu.html') ? `./${producto.imagen}` : `../${producto.imagen}`;// operador ternario(error al cargar las imagenes, forma resumida)
-        const imagenCarga = `${basePath}${producto.imagen}`;
+        const imagenCarga = producto.imagen;
         productoDiv.innerHTML = `
             <div class="icono-compra" data-id="${producto.id}">
                 <i class="fas fa-shopping-cart"></i>
