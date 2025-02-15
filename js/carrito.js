@@ -56,7 +56,7 @@ function mostrarProductos(productos, containerId) {
                 <i class="fas fa-shopping-cart"></i>
             </div>
             <h2 class="title-menu">${producto.nombre}</h2>
-            <img src="${imagenCarga}" alt="${producto.nombre}">
+            <img src="${imagenCarga}" alt="${producto.nombre}" onerror="this.onerror=null; this.src='img/default.png';">
             <p>${producto.descripcion}</p>
             <div class="precio">
                 <span>$${producto.precio.toLocaleString('es-CL')}</span>
