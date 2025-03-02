@@ -234,20 +234,20 @@ h1 {
 
 .producto-menu {
   display: flex;
-  flex-wrap: wrap; /* Para que las filas se envuelvan */
-  gap: 5px; /* Espacio entre los elementos */
+  flex-wrap: wrap;
+  gap: 5px;
 }
 
 .producto-menu > div {
-  flex: 20 1 20%; /* 25% para 4 elementos por fila */
-  box-sizing: border-box; /* Incluye el padding y border en el tamaño total del elemento */
+  flex: 20 1 20%;
+  box-sizing: border-box;
   padding: 20px;
   display: flex;
-  flex-direction: column; /* Para permitir que la imagen y otros contenidos crezcan */
+  flex-direction: column;
   align-items: center;
-  position: relative; /* Para que las imágenes se ajusten dentro del contenedor */
-  overflow: hidden; /* Ocultar cualquier contenido que se salga del contenedor */
-  height: 500%; /* Ajusta esto al tamaño que desees */
+  position: relative;
+  overflow: hidden;
+  height: 500%;
   margin: 8px;
 }
 
@@ -261,29 +261,31 @@ h1 {
 
 /* Asegurar que todas las cards tengan la misma altura */
 .producto-menu > div {
-  height: 450px; /* Ajusta esto al tamaño que desees */
+  height: 450px;
+  /* Ajusta esto al tamaño que desees */
 }
 
 .producto-menu img {
-  max-height: 100%; /* Hace que las imágenes no excedan la altura del contenedor */
+  max-height: 100%;
+  /* Hace que las imágenes no excedan la altura del contenedor */
 }
 
 .producto-menu-bebidas {
   display: flex;
-  flex-wrap: wrap; /* Para que las filas se envuelvan */
-  gap: 5px; /* Espacio entre los elementos */
+  flex-wrap: wrap;
+  gap: 5px;
 }
 
 .producto-menu-bebidas > div {
-  flex: 1 1 20%; /* 20% para 5 elementos por fila */
-  box-sizing: border-box; /* Incluye el padding y border en el tamaño total del elemento */
+  flex: 1 1 20%;
+  box-sizing: border-box;
   padding: 20px;
   display: flex;
-  flex-direction: column; /* Para permitir que la imagen y otros contenidos crezcan */
+  flex-direction: column;
   align-items: center;
-  position: relative; /* Para que las imágenes se ajusten dentro del contenedor */
-  overflow: hidden; /* Ocultar cualquier contenido que se salga del contenedor */
-  height: 450px; /* Ajusta esto al tamaño que desees */
+  position: relative;
+  overflow: hidden;
+  height: 450px;
   margin: 8px;
 }
 
@@ -320,14 +322,16 @@ h1 {
 }
 
 .button-compras {
-  display: flex; /* Alinea los botones en línea */
+  display: flex;
+  /* Alinea los botones en línea */
   justify-content: center;
 }
 .button-compras .boton-comprar {
   border: none;
   background: none;
   cursor: pointer;
-  margin-right: 20px; /* Espacio entre los botones */
+  margin-right: 20px;
+  /* Espacio entre los botones */
   padding: 20px;
 }
 .button-compras .boton-comprar i {
@@ -353,25 +357,73 @@ h1 {
 }
 
 .button-carrito {
-  display: flex; /* Alinea el contenido */
-  justify-content: start; /* Centra horizontalmente */
-  margin-top: 10px; /* Espacio superior */
+  display: flex;
+  /* Alinea el contenido */
+  justify-content: center;
+  margin-top: 10px;
+  /* Espacio superior */
   padding: 20px;
   font-size: large;
 }
-.button-carrito #vaciar-carrito {
-  background-color: red; /* Color de fondo */
-  color: white; /* Color del texto */
-  border: none; /* Sin borde */
-  padding: 10px 20px; /* Espaciado interno */
-  border-radius: 5px; /* Bordes redondeados */
-  cursor: pointer; /* Cambia el cursor al pasar el ratón */
+.button-carrito #vaciar-carrito,
+.button-carrito #finalizar-compra {
+  background-color: red;
+  /* Color de fondo */
+  color: white;
+  /* Color del texto */
+  border: none;
+  /* Sin borde */
+  padding: 10px 20px;
+  /* Espaciado interno */
+  border-radius: 5px;
+  /* Bordes redondeados */
+  cursor: pointer;
+  /* Cambia el cursor al pasar el ratón */
+  margin-left: 20px;
 }
-.button-carrito #vaciar-carrito:hover {
-  background-color: darkred; /* Color al pasar el ratón */
+.button-carrito #vaciar-carrito:hover,
+.button-carrito #finalizar-compra:hover {
+  background-color: darkred;
+  /* Color al pasar el ratón */
 }
-.button-carrito #vaciar-carrito:focus {
-  outline: none; /* Elimina el contorno al hacer clic */
+.button-carrito #vaciar-carrito:focus,
+.button-carrito #finalizar-compra:focus {
+  outline: none;
+  /* Elimina el contorno al hacer clic */
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .suma {
@@ -400,6 +452,43 @@ h1 {
 .icono-compra:hover {
   color: #db1717;
   transform: translateY(5px);
+}
+
+/*pago.total*/
+.pago {
+  text-align: center;
+}
+
+.resumen-compra, .form-pago {
+  margin: 20px auto;
+  padding: 20px;
+  background: white;
+  border: 1px solid #ccc;
+  max-width: 600px;
+}
+
+.producto {
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #ddd;
+  background: #fff;
+}
+
+.precio {
+  font-weight: bold;
+}
+
+.form-group {
+  margin: 10px 0;
+}
+
+input[type=submit] {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  width: 100%;
 }
 
 .delivery {

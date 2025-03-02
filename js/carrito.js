@@ -198,13 +198,16 @@ function mostrarCarrito() {
         total += producto.precio;
     });
 
-    // muestra la suma trayendo solo precio.producto
-    totalDiv.innerHTML = `Total de la compra: $${total.toLocaleString('es-CL')}`;
+  // Muestra la suma en ambos divs
+totalDiv.innerHTML = `Total de la compra: $${total.toLocaleString('es-CL')}`;
+document.getElementById('mostrar-resultado-2').innerHTML = `Total de la compra: $${total.toLocaleString('es-CL')}`;
+ return total;
 }
 
 
 //vaciar carrito
 document.getElementById('vaciar-carrito').addEventListener('click', vaciarCarrito);
+document.getElementById('realizar-compra').addEventListener('click', pagarCompra);
 //mostrar carrito
 document.addEventListener('DOMContentLoaded', function () {
     if (window.location.pathname.includes('carrito.html')) {
@@ -216,3 +219,89 @@ document.addEventListener('DOMContentLoaded', function () {
         clickEnBoton();
     }
 });
+
+let modal = document.getElementById('myModal');
+let btn = document.getElementById('finalizar-compra');
+let span = document.getElementsByClassName('close')[0];
+
+
+btn.onclick = function() {
+    modal.style.display = "block";
+}
+
+// Cerrar el modal al hacer clic en la "X"
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+// Cerrar el modal al hacer clic fuera de él
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
+function pagarCompra() {
+    // Obtener el método de pago seleccionado
+    const paymentMethodSelect = document.getElementById('payment-method');
+    const selectedPaymentMethod = paymentMethodSelect.value;
+    
+    const selectMail = document.getElementById('email');
+    const vistaMail = selectMail.value;
+    
+
+
+    // Validar que se haya seleccionado un método de pago
+    if (!selectedPaymentMethod) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'Por favor, selecciona un método de pago.',
+        });
+        return; // Salir de la función si no hay selección
+    }
+
+    // Llamar a mostrarCarrito para obtener el total
+    const total = mostrarCarrito(); // Obtener el total del carrito
+
+    // Usar SweetAlert para confirmar la acción
+    Swal.fire({
+        title: 'Confirmar Pago',
+        text: "¿Estás seguro de que deseas realizar el pago? Esto podría tardar unos minutos.",
+        icon: 'info',
+        showCancelButton: true,
+        confirmButtonColor: '#4CAF50', // Color de confirmación
+        cancelButtonColor: '#f44336', // Color de cancelación
+        confirmButtonText: 'Sí, proceder al pago',
+        cancelButtonText: 'Cancelar',
+        background: '#ffffff', // Fondo blanco
+        backdrop: `rgba(0, 0, 0, 0.5)`, // Fondo del modal
+        html: `
+            <div style="text-align: left;">
+                <strong>Mail de contacto:</strong> ${vistaMail}<br>
+                <strong>Método de Pago:</strong> ${selectedPaymentMethod}<br>
+                <div class="suma-modal" id="mostrar-resultado-3">Total de la compra: $${total.toLocaleString('es-CL')}</div><br>
+                <strong>Nota:</strong> Asegúrate de que tus datos sean correctos.
+            </div>
+        `,
+    }).then((result) => {
+        if (result.isConfirmed) {
+            // Si el usuario confirma se borra el carrito
+            carrito.length = 0; 
+            localStorage.setItem('carrito', JSON.stringify(carrito)); // Actualiza el localStorage
+            
+            // Actualizar la vista del carrito
+            mostrarCarrito();
+
+            Swal.fire(
+                '¡Gracias por tu compra!',
+                'Tu pago ha sido procesado con éxito.',
+                'success',
+                {
+                    background: '#e7f3fe', // Color de fondo para el mensaje de éxito
+                    iconColor: '#2196F3' // Color del ícono de éxito
+                }
+            );
+        }
+    });
+}
