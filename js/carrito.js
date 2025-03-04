@@ -234,7 +234,7 @@ span.onclick = function() {
     modal.style.display = "none";
 }
 
-// Cerrar el modal al hacer clic fuera de él
+// Cerrar el modal al hacer clic fuera 
 window.onclick = function(event) {
     if (event.target == modal) {
         modal.style.display = "none";
@@ -245,11 +245,15 @@ function pagarCompra() {
     // Obtener el método de pago seleccionado
     const paymentMethodSelect = document.getElementById('payment-method');
     const selectedPaymentMethod = paymentMethodSelect.value;
-    
-    const selectMail = document.getElementById('email');
-    const vistaMail = selectMail.value;
-    
 
+    const selectNombre = document.getElementById('name');
+    const vistaNombre = selectNombre.value;
+
+    const selectDireccion = document.getElementById('direccion');
+    const vistaDireccion = selectDireccion.value;
+
+    const selectDescripcion = document.getElementById('description');
+    const vistaDescripcion = selectDescripcion.value;
 
     // Validar que se haya seleccionado un método de pago
     if (!selectedPaymentMethod) {
@@ -278,7 +282,9 @@ function pagarCompra() {
         backdrop: `rgba(0, 0, 0, 0.5)`, // Fondo del modal
         html: `
             <div style="text-align: left;">
-                <strong>Mail de contacto:</strong> ${vistaMail}<br>
+                <strong>Nombre y apellido:</strong> ${vistaNombre}<br>
+                <strong>Dirección de entrega:</strong> ${vistaDireccion}<br>
+                <strong>Descripción:</strong> ${vistaDescripcion}<br>
                 <strong>Método de Pago:</strong> ${selectedPaymentMethod}<br>
                 <div class="suma-modal" id="mostrar-resultado-3">Total de la compra: $${total.toLocaleString('es-CL')}</div><br>
                 <strong>Nota:</strong> Asegúrate de que tus datos sean correctos.
@@ -286,22 +292,90 @@ function pagarCompra() {
         `,
     }).then((result) => {
         if (result.isConfirmed) {
-            // Si el usuario confirma se borra el carrito
+            // Si el usuario confirma, se borra el carrito
             carrito.length = 0; 
             localStorage.setItem('carrito', JSON.stringify(carrito)); // Actualiza el localStorage
             
             // Actualizar la vista del carrito
             mostrarCarrito();
 
-            Swal.fire(
-                '¡Gracias por tu compra!',
-                'Tu pago ha sido procesado con éxito.',
-                'success',
-                {
-                    background: '#e7f3fe', // Color de fondo para el mensaje de éxito
-                    iconColor: '#2196F3' // Color del ícono de éxito
+            // Nuevo alert para ingresar datos adicionales
+            Swal.fire({
+                title: 'Pago de pedido',
+                html: `
+                    <div>
+                        <label for="nombreTarjeta">Nombre de tarjeta:</label>
+                        <input id="nombreTarjeta" class="swal2-input" placeholder="Nombre de tarjeta">
+                        <label for="numeroTarjeta">Número de tarjeta:</label>
+                        <input id="numeroTarjeta" type="text" class="swal2-input" placeholder="Número de tarjeta">
+                        <label for="fechaVencimiento">Fecha de vencimiento:</label>
+                        <input id="fechaVencimiento" type="text" class="swal2-input" placeholder="MM/AA">
+                        <label for="codigoSeguridad">Código de seguridad:</label>
+                        <input id="codigoSeguridad" type="text" class="swal2-input" placeholder="Código de seguridad">
+                    </div>
+                `,
+                showCancelButton: true,
+                confirmButtonText: 'Pagar',
+                cancelButtonText: 'Cancelar',
+                background: '#ffffff', // Fondo blanco
+                backdrop: `rgba(0, 0, 0, 0.5)`, // Fondo del modal
+            }).then((inputResult) => {
+                if (inputResult.isConfirmed) {
+                    const nombreTarjeta = document.getElementById('nombreTarjeta').value;
+                    const numeroTarjeta = document.getElementById('numeroTarjeta').value;
+                    const fechaVencimiento = document.getElementById('fechaVencimiento').value;
+                    const codigoSeguridad = document.getElementById('codigoSeguridad').value;
+
+                    // Simular el procesamiento del pago
+                    const processingTime = 3000; // Tiempo total de procesamiento en milisegundos
+                    const progressInterval = 20; // Intervalo de actualización de la barra en milisegundos
+                    const totalSteps = processingTime / progressInterval; // Total de pasos para la barra
+                    let currentStep = 0; // Contador de pasos
+
+                    // Inicializar el SweetAlert de procesamiento
+                    Swal.fire({
+                        title: 'Procesando Pago',
+                        html: `
+                            <div>
+                                <p>Por favor, espera mientras procesamos tu pago...</p>
+                                <div class="progress" style="width: 100%; background-color: #f3f3f3; border-radius: 5px;">
+                                    <div id="progress-bar" style="height: 20px; width: 0%; background-color: #4CAF50; border-radius: 5px;"></div>
+                                </div>
+                            </div>
+                        `,
+                        allowOutsideClick: false,
+                        onBeforeOpen: () => {
+                            Swal.showLoading();
+                            let progressBar = document.getElementById('progress-bar');
+
+                            // Actualizar la barra de progreso
+                            const interval = setInterval(() => {
+                                currentStep++;
+                                const width = (currentStep / totalSteps) * 100;
+                                progressBar.style.width = width + '%';
+
+                                if (currentStep >= totalSteps) {
+                                    clearInterval(interval);
+                                }
+                            }, progressInterval);
+                        }
+                    });
+
+                    // Simular un retraso en el procesamiento del pago
+                    setTimeout(() => {
+                        Swal.fire(
+                            '¡Gracias por tu compra!',
+                            `Tu pago ha sido procesado con éxito.`,
+                            'success',
+                            {
+                                background: '#e7f3fe', // Color de fondo para el mensaje de éxito
+                                iconColor: '#2196F3' // Color del ícono de éxito
+                            }
+                        );
+                    }, processingTime); // Cambia processingTime a la cantidad de milisegundos que desees para simular el tiempo de procesamiento
                 }
-            );
+            });
         }
     });
 }
+

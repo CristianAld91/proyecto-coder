@@ -491,6 +491,11 @@ input[type=submit] {
   width: 100%;
 }
 
+.payment-images img {
+  width: 50px;
+  margin: 5px;
+}
+
 .delivery {
   background: rgba(247, 237, 182, 0.5490196078);
   padding: 20px;
