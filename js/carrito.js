@@ -246,14 +246,10 @@ function pagarCompra() {
     const paymentMethodSelect = document.getElementById('payment-method');
     const selectedPaymentMethod = paymentMethodSelect.value;
 
-    const selectNombre = document.getElementById('name');
-    const vistaNombre = selectNombre.value;
-
-    const selectDireccion = document.getElementById('direccion');
-    const vistaDireccion = selectDireccion.value;
-
-    const selectDescripcion = document.getElementById('description');
-    const vistaDescripcion = selectDescripcion.value;
+    const vistaNombre = document.getElementById('name').value;
+    const vistaDireccion = document.getElementById('direccion').value;
+    const vistaDescripcion = document.getElementById('description').value;
+    const vistaEmail = document.getElementById('email').value.trim();
 
     // Validar que se haya seleccionado un método de pago
     if (!selectedPaymentMethod) {
@@ -265,12 +261,11 @@ function pagarCompra() {
         return; // Salir de la función si no hay selección
     }
 
-    // Llamar a mostrarCarrito para obtener el total
     const total = mostrarCarrito(); // Obtener el total del carrito
 
     // Usar SweetAlert para confirmar la acción
     Swal.fire({
-        title: 'Confirmar Pago',
+        title: 'Confirmar Pedido',
         text: "¿Estás seguro de que deseas realizar el pago? Esto podría tardar unos minutos.",
         icon: 'info',
         showCancelButton: true,
@@ -285,6 +280,7 @@ function pagarCompra() {
                 <strong>Nombre y apellido:</strong> ${vistaNombre}<br>
                 <strong>Dirección de entrega:</strong> ${vistaDireccion}<br>
                 <strong>Descripción:</strong> ${vistaDescripcion}<br>
+                <strong>Email:</strong> ${vistaEmail}<br>
                 <strong>Método de Pago:</strong> ${selectedPaymentMethod}<br>
                 <div class="suma-modal" id="mostrar-resultado-3">Total de la compra: $${total.toLocaleString('es-CL')}</div><br>
                 <strong>Nota:</strong> Asegúrate de que tus datos sean correctos.
@@ -326,6 +322,16 @@ function pagarCompra() {
                     const fechaVencimiento = document.getElementById('fechaVencimiento').value;
                     const codigoSeguridad = document.getElementById('codigoSeguridad').value;
 
+                    // Validar campos de tarjeta
+                    if (!nombreTarjeta || !numeroTarjeta || !fechaVencimiento || !codigoSeguridad) {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error',
+                            text: 'Por favor, completa todos los campos de la tarjeta.',
+                        });
+                        return; // Salir si hay campos vacíos
+                    }
+
                     // Simular el procesamiento del pago
                     const processingTime = 3000; // Tiempo total de procesamiento en milisegundos
                     const progressInterval = 20; // Intervalo de actualización de la barra en milisegundos
@@ -339,7 +345,7 @@ function pagarCompra() {
                             <div>
                                 <p>Por favor, espera mientras procesamos tu pago...</p>
                                 <div class="progress" style="width: 100%; background-color: #f3f3f3; border-radius: 5px;">
-                                    <div id="progress-bar" style="height: 20px; width: 0%; background-color: #4CAF50; border-radius: 5px;"></div>
+                                    <div id="progress-bar" style="height: 20px; width: 0%; background-color: rgb(11, 129, 15); border-radius: 5px;"></div>
                                 </div>
                             </div>
                         `,
@@ -364,7 +370,7 @@ function pagarCompra() {
                     // Simular un retraso en el procesamiento del pago
                     setTimeout(() => {
                         Swal.fire(
-                            '¡Gracias por tu compra!',
+                            '¡Gracias por tu compra !',
                             `Tu pago ha sido procesado con éxito.`,
                             'success',
                             {
@@ -372,7 +378,7 @@ function pagarCompra() {
                                 iconColor: '#2196F3' // Color del ícono de éxito
                             }
                         );
-                    }, processingTime); // Cambia processingTime a la cantidad de milisegundos que desees para simular el tiempo de procesamiento
+                    }, processingTime); 
                 }
             });
         }
