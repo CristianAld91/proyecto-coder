@@ -1,5 +1,5 @@
 # README - Función `pagarCompra`
-### Elementos Clave
+### Datos del proyecto
 
 - **Título de la pagina**:El rey de la hamburguesa.
 - **Descripción**: Eccomerce de venta de hamburguesas .
